@@ -40,7 +40,7 @@ app.get('/reset-table',function(req,res,next){
 
 app.get('/', function(req, res, next) {
 	  var context = {};
-	  pool.query('SELECT * FROM toDo', function (err, rows, fields) {
+	  pool.query('SELECT * FROM todo', function (err, rows, fields) {
 		  if(err) {
 			  next(err);
 			  return;
