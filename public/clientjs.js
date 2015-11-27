@@ -14,8 +14,11 @@ console.log("in client js");
 		//var units2Current = document.getElementById("kgsbutton").value;
 		
 		
-		var payload = [];
-		payload.push({name:workName}, {reps:repsCurrent}, {weight:weightCurrent}, {date:dateCurrent});
+		var payload = {};
+		payload.name=workName;
+		payload.reps=repsCurrent;
+		payload.weight=weightCurrent;
+		payload.date=dateCurrent;
 		console.log(JSON.stringify(payload));
 		req.open("POST", "http://http://52.26.106.49:3000/insert", true);
 		req.setRequestHeader("Content-Type", "application/json");
@@ -32,7 +35,7 @@ console.log("in client js");
 		    console.log("Error in network request: " + request.statusText);
 		}});
 		
-        //req.send(JSON.stringify(payload));
+        req.send(JSON.stringify(payload));
 		event.preventDefault();
 		
 	  });
