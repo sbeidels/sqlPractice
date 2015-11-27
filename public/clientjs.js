@@ -2,16 +2,15 @@ document.addEventListener("DOMContentLoaded", bindButtons);
 	  
 	  function bindButtons() {
 	    document.getElementById("newWork").addEventListener('click', function(event) {
-		
+		console.log("in bind buttons");
 		var req = new XMLHttpRequest();
 		var workName = document.getElementById("workName").value;
 		var repsCurrent = document.getElementById("reps").value;
 		var weightCurrent = document.getElementById("weight").value;
 		var dateCurrent = document.getElementById("date").value;
-		var unitsCurrent = document.getElementById("lbsbutton").value;
-		var units2Current = document.getElementById("kgsbutton").value;
-		console.log(units);
-		console.log(units2);
+		//var unitsCurrent = document.getElementById("lbsbutton").value;
+		//var units2Current = document.getElementById("kgsbutton").value;
+		
 		
 		var payload = {name:workName}, {reps:repsCurrent}, {weight:weightCurrent}, {date:dateCurrent};
 		req.open("POST", "http://http://52.26.106.49:3000/insert", true);
