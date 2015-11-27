@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", bindButtons);
+console.log("in client js");
 	  
 	  function bindButtons() {
 	    document.getElementById("newWork").addEventListener('click', function(event) {
