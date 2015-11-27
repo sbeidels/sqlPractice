@@ -62,12 +62,10 @@ app.post('/insert',function(req,res,next){
   console.log(req.body);
   console.log("print name");
   console.log(req.body.name);
-  console.log("Parsing body");
-  JSON.parse(req.body);
-  console.log(req.body.name);
   
-  console.log(req.body);
-  pool.query("INSERT INTO workouts (`name`, `reps`, `weight`, `date`) VALUES (?,?,?,?)", req.body.name, req.body.reps, req.body.weight, req.body.date, function(err, result){  //note the back tick `
+  
+ 
+  pool.query("INSERT INTO workouts (`name`, `reps`, `weight`, `date`) VALUES (?,?,?,?)", [req.body.name, req.body.reps, req.body.weight, req.body.date], function(err, result){  //note the back tick `
     if(err){
       next(err);
       return;
