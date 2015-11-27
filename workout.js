@@ -6,7 +6,7 @@ var bodyParser = require('body-parser');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
+app.use(express.static('public'));
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 
@@ -56,6 +56,17 @@ app.get('/', function(req, res, next) {
 	  });
   });
 
+app.post('/insert',function(req,res,next){
+  var context = {};
+  mysql.pool.query("INSERT INTO workouts (`name`, `reps`, `weight`, `date`) VALUES (?,?,?,?)", req.body.name, req.body.reps, req.body.weight, req.body.date, function(err, result){  //note the back tick `
+    if(err){
+      next(err);
+      return;
+    }
+    context.results = "Inserted id " + result.insertId;
+    res.render('home',context);
+  });
+});  
 app.use(function(req, res) {
 	
   res.status(404);
