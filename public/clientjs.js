@@ -32,7 +32,7 @@ console.log("in client js");
 			console.log(req.responseText);
 			}
 		  else {
-		    console.log("Error in network request: " + request.statusText);
+		    console.log("Error in network request: " );
 		}});
 		
         req.send(JSON.stringify(payload));
