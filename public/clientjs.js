@@ -20,7 +20,7 @@ console.log("in client js");
 		payload.weight=weightCurrent;
 		payload.date=dateCurrent;
 		console.log(JSON.stringify(payload));
-		req.open("POST", "http://http://52.26.106.49:3000/insert", true);
+		req.open("POST", "http://52.26.106.49:3000/insert", true);
 		req.setRequestHeader("Content-Type", "application/json");
 		req.addEventListener("load", function() {
 		  if (req.status >= 200 && req.status < 400) {
