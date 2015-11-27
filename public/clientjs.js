@@ -1,3 +1,4 @@
+console.log("in client js");
 document.addEventListener("DOMContentLoaded", bindButtons);
 console.log("in client js");
 	  
