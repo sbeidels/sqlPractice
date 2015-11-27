@@ -16,6 +16,7 @@ console.log("in client js");
 		
 		var payload = [];
 		payload.push({name:workName}, {reps:repsCurrent}, {weight:weightCurrent}, {date:dateCurrent});
+		console.log(JSON.stringify(payload));
 		req.open("POST", "http://http://52.26.106.49:3000/insert", true);
 		req.setRequestHeader("Content-Type", "application/json");
 		req.addEventListener("load", function() {
@@ -30,7 +31,8 @@ console.log("in client js");
 		  else {
 		    console.log("Error in network request: " + request.statusText);
 		}});
-        req.send(JSON.stringify(payload));
+		
+        //req.send(JSON.stringify(payload));
 		event.preventDefault();
 		
 	  });
