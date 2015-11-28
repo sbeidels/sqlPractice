@@ -13,6 +13,7 @@ function buildTable() {
 		
 		console.log("in get request listener");
 		var response = JSON.parse(req.responseText);
+		var data = JSON.parse(response.results);
 		//var response = req.responseText;
 		console.log(response);
 		
