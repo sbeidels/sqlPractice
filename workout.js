@@ -68,10 +68,10 @@ app.get('/table', function(req, res, next) {
 			  next(err);
 			  return;
 		  }
-		  context.results = JSON.stringify(rows);
+		  context.results = (rows[0].id);
 		  
-		  console.log(context.results);
-		  console.log("about to send");
+		 // console.log(context.results);
+		 // console.log("about to send");
 		  res.type('json');
 		  res.send(context);
 		  //res.render('home', context);
