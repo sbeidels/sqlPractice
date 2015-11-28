@@ -17,16 +17,14 @@ function buildTable() {
 		var upButton = document.createElement("button");
 		upButton.textContent = "Up";
 		document.body.appendChild(upButton);
-		var newTable = document.createElement("table");
-	    var headerRow = document.createElement("thead");
-	    for(var i=1; i<=5; i++) {
-			var newHeader = document.createElement("th");
-			//newHeader.style.border = 1px solid black;
-			newHeader.textContent = "Header " + i;
-		}
-		
-		newTable.appendChild(headerRow);
 		var tableBody = document.createElement("tbody");
+		var newRow = document.createElement("tr")
+		var newData = document.createElement("td");
+		newData.textContent = "test";
+		newRow.appendChild(newData);
+		tableBody.appendChild(newRow);
+	    document.getElementById("workData").appendChild(tableBody);
+		
 		var data = req.responseText;
 		document.body.appendChild(newTable);
 		
