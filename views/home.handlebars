@@ -39,18 +39,22 @@
 {{#if results}}
 <table>
   <thead>
+    <tr>
     <th>Workout Name</th>
 	<th>Reps</th>
 	<th>Weight</th>
 	<th>Date</th>
 	<th>Units</th>
+	</tr>
   </thead>
   <tbody>
     {{#each results}}
+	<tr>
 	<td>{{this.name}}</td>
 	<td>{{this.reps}}</td>
 	<td>{{this.weight}}</td>
 	<td>{{this.date}}</td>
+	</tr>
     {{/each}}
   </tbody>
 </table>
