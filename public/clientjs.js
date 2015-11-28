@@ -23,6 +23,7 @@ function buildTable {
 		newTable.appendChild(headerRow);
 		var tableBody = document.createElement("tbody");
 		var data = req.responseText;
+		document.body.appendChild(newTable);
 		
 		}
 		else {
