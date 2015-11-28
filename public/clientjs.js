@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", bindButtons);
 document.addEventListener("DOMContentLoaded", buildTable);
 console.log("in client js");
 
-function buildTable {
+function buildTable() {
 	console.log("in build table");
 	var req = new XMLHttpRequest();
 	req.open("GET", "http://http://52.26.106.49:3000/", true);
