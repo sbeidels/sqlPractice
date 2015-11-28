@@ -16,6 +16,7 @@ function buildTable() {
 		var data = JSON.parse(response.results);
 		//var response = req.responseText;
 		console.log(response);
+		console.log(data);
 		
 		var upButton = document.createElement("button");
 		upButton.textContent = "Up";
