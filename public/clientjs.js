@@ -17,9 +17,10 @@ function buildTable() {
 	    var headerRow = document.createElement("thead");
 	    for(var i=1; i<=5; i++) {
 			var newHeader = document.createElement("th");
-			newHeader.style.border = 1px solid black;
+			//newHeader.style.border = 1px solid black;
 			newHeader.textContent = "Header " + i;
 		}
+		
 		newTable.appendChild(headerRow);
 		var tableBody = document.createElement("tbody");
 		var data = req.responseText;
