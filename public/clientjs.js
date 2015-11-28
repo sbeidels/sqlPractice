@@ -25,11 +25,11 @@ console.log("in client js");
 		req.addEventListener("load", function() {
 		  if (req.status >= 200 && req.status < 400) {
 			console.log("In request event listener");
-		    //var response = JSON.parse(req.responseText);
-			var dataString = JSON.parse(response.data);
+		    var response = JSON.parse(req.responseText);
+			//var dataString = JSON.parse(response.data);
 			//document.getElementById("returnedInput").textContent = dataString.textIn;
-			console.log(response.data);
-			//console.log(req.responseText);
+			//console.log(response.data);
+			console.log(req.responseText);
 			}
 		  else {
 		    console.log("Error in network request: " );
