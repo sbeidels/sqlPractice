@@ -45,6 +45,7 @@ app.get('/reset-table',function(req,res,next){
 });
 
 app.get('/', function(req, res, next) {
+		console.log("in app get");
 	  var context = {};
 	  pool.query('SELECT * FROM workouts', function (err, rows, fields) {
 		  if(err) {
@@ -53,6 +54,8 @@ app.get('/', function(req, res, next) {
 		  }
 		  context.results = JSON.stringify(rows);
 		  //res.render('home', context);
+		  console.log(context.results);
+		  console.log("about to send");
 		  res.type('json');
 		  res.send(context);
 	  });
