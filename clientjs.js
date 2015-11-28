@@ -6,7 +6,7 @@ console.log("in client js");
 function buildTable() {
 	console.log("in build table");
 	var req = new XMLHttpRequest();
-	req.open("GET", "http://http://52.26.106.49:3000/", true);
+	req.open("GET", "http://52.26.106.49:3000/", true);
 	req.addEventListener("load", function() {
 		if(req.status >=200 && req.status < 400) {
 			

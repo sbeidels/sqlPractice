@@ -1,14 +1,14 @@
 var express = require('express');
 var app = express();
 
-//var handlebars = require('express-handlebars').create({defaultLayout:'main'});
+var handlebars = require('express-handlebars').create({defaultLayout:'main'});
 var bodyParser = require('body-parser');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static('public'));
-//app.engine('handlebars', handlebars.engine);
-//app.set('view engine', 'handlebars');
+app.engine('handlebars', handlebars.engine);
+app.set('view engine', 'handlebars');
 
 app.set('port', 3000);
 
@@ -39,7 +39,7 @@ app.get('/reset-table',function(req,res,next){
     "lbs BOOLEAN)";
     pool.query(createString, function(err){
       context.results = "Table reset";
-     // res.render('home',context);
+      res.render('home',context);
     })
   });
 });
@@ -56,9 +56,9 @@ app.get('/', function(req, res, next) {
 		  
 		  console.log(context.results);
 		  console.log("about to send");
-		  res.type('json');
-		  res.send(context);
-		  //res.render('home', context);
+		 // res.type('json');
+		  //res.send(context);
+		  res.render('home', context);
 	  });
   });
 
@@ -82,7 +82,7 @@ app.post('/insert',function(req,res,next){
 			  return;
 		  }
 		  context.results = JSON.stringify(rows);
-         //res.render('home',context);
+         res.render('home',context);
   });
 });  
 
