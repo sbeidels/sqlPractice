@@ -13,6 +13,10 @@ function buildTable() {
 		
 		console.log("in get request listener");
 		var response = JSON.parse(req.responseText);
+		console.log(response);
+		var upButton = document.createElement("button");
+		upButton.textContent = "Up";
+		document.body.appendChild(upButton);
 		var newTable = document.createElement("table");
 	    var headerRow = document.createElement("thead");
 	    for(var i=1; i<=5; i++) {
