@@ -18,7 +18,7 @@ function buildTable() {
 		console.log(response);
 		console.log(data);
 		console.log("use array");
-		console.log(response.results[0].reps);
+		console.log(data.results[0].reps);
 		
 		var upButton = document.createElement("button");
 		upButton.textContent = "Up";
