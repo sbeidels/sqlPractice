@@ -12,8 +12,8 @@ function buildTable() {
 			
 		
 		console.log("in get request listener");
-		//var response = JSON.parse(req.responseText);
-		var response = req.responseText;
+		var response = JSON.parse(req.responseText);
+		//var response = req.responseText;
 		console.log(response);
 		
 		var upButton = document.createElement("button");
@@ -26,7 +26,7 @@ function buildTable() {
 		newRow.appendChild(newData);
 		tableBody.appendChild(newRow);
 	    document.getElementById("workData").appendChild(tableBody);
-		console.log(response.result.reps);
+		console.log(response.reps);
 		var data = req.responseText;
 		//document.body.appendChild(newTable);
 		
