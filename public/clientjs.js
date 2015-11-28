@@ -12,8 +12,10 @@ function buildTable() {
 			
 		
 		console.log("in get request listener");
-		var response = JSON.parse(req.responseText);
+		//var response = JSON.parse(req.responseText);
+		var response = req.responseText;
 		console.log(response);
+		
 		var upButton = document.createElement("button");
 		upButton.textContent = "Up";
 		document.body.appendChild(upButton);
