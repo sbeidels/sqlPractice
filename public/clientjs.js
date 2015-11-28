@@ -18,15 +18,15 @@ function buildTable() {
 		upButton.textContent = "Up";
 		document.body.appendChild(upButton);
 		var tableBody = document.createElement("tbody");
-		var newRow = document.createElement("tr")
+		var newRow = document.createElement("tr");
 		var newData = document.createElement("td");
 		newData.textContent = "test";
 		newRow.appendChild(newData);
 		tableBody.appendChild(newRow);
 	    document.getElementById("workData").appendChild(tableBody);
-		
+		console.log(response.result.reps);
 		var data = req.responseText;
-		document.body.appendChild(newTable);
+		//document.body.appendChild(newTable);
 		
 		}
 		else {
