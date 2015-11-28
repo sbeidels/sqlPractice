@@ -22,7 +22,23 @@ var pool = mysql.createPool({
 });
 
 
-
+app.get('/', function(req, res, next) {
+		console.log("in app get");
+	  var context = {};
+	  pool.query('SELECT * FROM workouts', function (err, rows, fields) {
+		  if(err) {
+			  next(err);
+			  return;
+		  }
+		  context.results = JSON.stringify(rows);
+		  
+		  console.log(context.results);
+		  console.log("about to send");
+		  //res.type('json');
+		  //res.send(context);
+		  res.render('home', context);
+	  });
+  });
 
 
 
@@ -44,7 +60,7 @@ app.get('/reset-table',function(req,res,next){
   });
 });
 
-app.get('/', function(req, res, next) {
+app.get('/table', function(req, res, next) {
 		console.log("in app get");
 	  var context = {};
 	  pool.query('SELECT * FROM workouts', function (err, rows, fields) {
@@ -56,9 +72,9 @@ app.get('/', function(req, res, next) {
 		  
 		  console.log(context.results);
 		  console.log("about to send");
-		 // res.type('json');
-		  //res.send(context);
-		  res.render('home', context);
+		  res.type('json');
+		  res.send(context);
+		  //res.render('home', context);
 	  });
   });
 
