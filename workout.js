@@ -52,7 +52,9 @@ app.get('/', function(req, res, next) {
 			  return;
 		  }
 		  context.results = JSON.stringify(rows);
-		  res.render('home', context);
+		  //res.render('home', context);
+		  res.type('json');
+		  res.send(context);
 	  });
   });
 
@@ -76,7 +78,7 @@ app.post('/insert',function(req,res,next){
 			  return;
 		  }
 		  context.results = JSON.stringify(rows);
-         res.render('home',context);
+         //res.render('home',context);
   });
 });  
 
