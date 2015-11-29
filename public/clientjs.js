@@ -21,8 +21,8 @@ function buildTable() {
 		var response = JSON.parse(req.responseText);
 		var data = JSON.parse(response.results);
 		//var response = req.responseText;
-		for(var i=0; i<response.results.length; i++) {
-			console.log(response.results[i].name);
+		for(var i=0; i<data.length; i++) {
+			console.log(data[i].name);
 		}
 		console.log("after parse");
 		console.log(response);
