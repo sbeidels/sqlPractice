@@ -48,12 +48,12 @@ function buildTable() {
 			}
 			tableBody.appendChild(newRow);
 		}
-		
+		//right now this duplicates table...use .textContent instead of append?
 		//var newData = document.createElement("td");
 		//newData.textContent = "test";
 		//newRow.appendChild(newData);
 		//tableBody.appendChild(newRow);
-	    document.getElementById("workData").appendChild(tableBody);
+	    document.getElementById("workBody").textContent = tableBody;
 		//console.log(response.reps);
 		//var data = req.responseText;
 		//document.body.appendChild(newTable);
