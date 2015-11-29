@@ -12,13 +12,17 @@ function buildTable() {
 			
 		
 		console.log("in get request listener");
+		console.log(req.responseText);
+		console.log("responseText.results");
+		console.log(req.responseText.results);
 		var response = JSON.parse(req.responseText);
 		var data = JSON.parse(response.results);
 		//var response = req.responseText;
+		console.log("after parse");
 		console.log(response);
 		console.log(data);
 		console.log("use array");
-		console.log(data.results[0].reps);
+		
 		
 		var upButton = document.createElement("button");
 		upButton.textContent = "Up";
