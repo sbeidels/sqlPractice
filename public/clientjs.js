@@ -53,7 +53,9 @@ function buildTable() {
 		//newData.textContent = "test";
 		//newRow.appendChild(newData);
 		//tableBody.appendChild(newRow);
-	    document.getElementById("workBody").textContent = tableBody;
+		var child = document.getElementById("workBody");
+		child.parentNode.removeChild(child);
+	    document.getElementById("workTable").appendChild = tableBody;
 		//console.log(response.reps);
 		//var data = req.responseText;
 		//document.body.appendChild(newTable);
