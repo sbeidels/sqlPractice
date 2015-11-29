@@ -24,24 +24,38 @@ function buildTable() {
 		for(var i=0; i<data.length; i++) {
 			console.log(data[i].name);
 		}
-		console.log("after parse");
-		console.log(response);
-		console.log(data);
-		console.log("use array");
-		
+				
 		
 		var upButton = document.createElement("button");
 		upButton.textContent = "Up";
 		document.body.appendChild(upButton);
 		var tableBody = document.createElement("tbody");
-		var newRow = document.createElement("tr");
-		var newData = document.createElement("td");
-		newData.textContent = "test";
-		newRow.appendChild(newData);
-		tableBody.appendChild(newRow);
+		for(var i=0; i<data.length; i++) {
+			for(var j=0; j<4; j++) {
+			var newRow = document.createElement("tr");
+			var newCellName = document.createElement("td");
+			newCellName.textContent = data[i].name;
+			var newCellRep = document.createElement("td");
+			newCellRep.textContent = data[i].reps;
+			var newCellWeight = docuemnt.createElement("td");
+			newCellWeight.textContent = data[i].weight;
+			var newCellDate = document.createElement("td");
+			newCellDate.textContent = data[i].date;
+			newRow.appendChild(newCellName);
+			newRow.appendChild(newCellRep);
+			newRow.appendChild(newCellWeight);
+			newRow.appendChild(newCellDate);
+			}
+			tableBody.appendChild(newRow);
+		}
+		
+		//var newData = document.createElement("td");
+		//newData.textContent = "test";
+		//newRow.appendChild(newData);
+		//tableBody.appendChild(newRow);
 	    document.getElementById("workData").appendChild(tableBody);
-		console.log(response.reps);
-		var data = req.responseText;
+		//console.log(response.reps);
+		//var data = req.responseText;
 		//document.body.appendChild(newTable);
 		
 		}
