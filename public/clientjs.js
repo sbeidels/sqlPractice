@@ -98,6 +98,7 @@ function buildTable() {
 			//document.getElementById("returnedInput").textContent = dataString.textIn;
 			//console.log(response.data);
 			console.log(req.responseText);
+			buildTable();
 			}
 		  else {
 		    console.log("Error in network request: " );
