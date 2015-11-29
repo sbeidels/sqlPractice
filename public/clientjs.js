@@ -53,8 +53,12 @@ function buildTable() {
 		//newData.textContent = "test";
 		//newRow.appendChild(newData);
 		//tableBody.appendChild(newRow);
-		var child = document.getElementById("workBody");
-		child.parentNode.removeChild(child);
+		var child = document.getElementsByTagName("tbody");
+		for(var i=0; i<child.length; i++) {
+			child[i].parentNode.removeChild(child[i]);
+			console.log("node removed");
+		}
+		
 	    document.getElementById("workTable").appendChild = tableBody;
 		//console.log(response.reps);
 		//var data = req.responseText;
