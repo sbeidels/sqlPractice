@@ -53,13 +53,14 @@ function buildTable() {
 		//newData.textContent = "test";
 		//newRow.appendChild(newData);
 		//tableBody.appendChild(newRow);
+		var oldTable = document.getElementById("workData");
 		var child = document.getElementsByTagName("tbody");
 		for(var i=0; i<child.length; i++) {
-			child[i].parentNode.removeChild(child[i]);
+			oldTable.removeChild(child[i]);
 			console.log("node removed");
 		}
 		
-	    document.getElementById("workData").appendChild = tableBody;
+	    oldTable.appendChild = tableBody;
 		//console.log(response.reps);
 		//var data = req.responseText;
 		//document.body.appendChild(newTable);
