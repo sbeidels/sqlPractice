@@ -37,7 +37,7 @@ function buildTable() {
 			newCellName.textContent = data[i].name;
 			var newCellRep = document.createElement("td");
 			newCellRep.textContent = data[i].reps;
-			var newCellWeight = docuemnt.createElement("td");
+			var newCellWeight = document.createElement("td");
 			newCellWeight.textContent = data[i].weight;
 			var newCellDate = document.createElement("td");
 			newCellDate.textContent = data[i].date;
