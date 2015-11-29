@@ -59,7 +59,7 @@ function buildTable() {
 			console.log("node removed");
 		}
 		
-	    document.getElementById("workTable").appendChild = tableBody;
+	    document.getElementById("workData").appendChild = tableBody;
 		//console.log(response.reps);
 		//var data = req.responseText;
 		//document.body.appendChild(newTable);
