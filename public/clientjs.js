@@ -54,11 +54,11 @@ function buildTable() {
 		//newRow.appendChild(newData);
 		//tableBody.appendChild(newRow);
 		var oldTable = document.getElementById("workData");
-		var child = document.getElementsByTagName("tbody");
-		for(var i=0; i<child.length; i++) {
-			oldTable.removeChild(child[i]);
-			console.log("node removed");
-		}
+		//var child = document.getElementsByTagName("tbody");
+		//for(var i=0; i<child.length; i++) {
+		//	oldTable.removeChild(child[i]);
+		//	console.log("node removed");
+		//}
 		
 	    oldTable.appendChild = tableBody;
 		//console.log(response.reps);
