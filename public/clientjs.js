@@ -146,13 +146,14 @@ function buildTable() {
 		  console.log(event.target.name);
 		  var payload = {};
 		  payload.id = event.target.id;
+		  var delReq = new XMLHttpRequest();
 		  //if(event.target.name = "delete") {
-			req.open("POST", "http://52.26.106.49:3000/delete", true);
-		req.setRequestHeader("Content-Type", "application/json");
-		req.addEventListener("load", function() {
-		  if (req.status >= 200 && req.status < 400) {
+			delReq.open("POST", "http://52.26.106.49:3000/delete", true);
+		    delReq.setRequestHeader("Content-Type", "application/json");
+		    delReq.addEventListener("load", function() {
+		      if (delReq.status >= 200 && delReq.status < 400) {
 			console.log("In delete request event listener");
-		   	console.log(req.responseText);
+		   	console.log(delReq.responseText);
 			buildTable();
 			}
 		  else {
