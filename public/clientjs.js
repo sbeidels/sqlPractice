@@ -136,6 +136,7 @@ function buildTable() {
 	  document.getElementById("workData").addEventListener('click', function(event) {
 		  console.log("in table listener");
 		  console.log(event.target.name);
+		  event.stopPropagation();
 	  });
 	  }
 		
