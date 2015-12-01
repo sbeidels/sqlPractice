@@ -54,6 +54,7 @@ function buildTable() {
 			var deleteButton = document.createElement("input");
 			deleteButton.type = "submit";
 			deleteButton.value = "delete";
+			deleteButton.name = "delete";
 			deleteButton.id = data[i].id;
 			
 				
@@ -142,11 +143,9 @@ function buildTable() {
 		  console.log("in table listener");
 		  console.log(event.target);
 		  console.log(event.target.id);
+		  console.log(event.target.name);
 		  event.stopPropagation();
 	  }); 
 	  }
-	  function deleteRow(rowId) {
-		  console.log("In delete function");
-		  console.log(rowId);
-	  }
+	 
 		
