@@ -54,6 +54,7 @@ function buildTable() {
 			var deleteButton = document.createElement("input");
 			deleteButton.type = "submit";
 			deleteButton.value = "delete";
+			deleteButton.id = data[i].id;
 			
 				
 			//deleteButton.onclick=deleteRow(data[i].id);
