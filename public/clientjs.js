@@ -144,6 +144,26 @@ function buildTable() {
 		  console.log(event.target);
 		  console.log(event.target.id);
 		  console.log(event.target.name);
+		  var payload = {};
+		  payload.id = event.target.id;
+		  if(event.target.name = "delete") {
+			req.open("POST", "http://52.26.106.49:3000/delete", true);
+		req.setRequestHeader("Content-Type", "application/json");
+		req.addEventListener("load", function() {
+		  if (req.status >= 200 && req.status < 400) {
+			console.log("In delete request event listener");
+		   	console.log(req.responseText);
+			buildTable();
+			}
+		  else {
+		    console.log("Error in network request: " );
+		}
+		});
+		
+        req.send(JSON.stringify(payload));
+		event.preventDefault();
+		  
+		  }
 		  event.stopPropagation();
 	  }); 
 	  }

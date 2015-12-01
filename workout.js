@@ -103,6 +103,30 @@ app.post('/insert',function(req,res,next){
 });  
 
 });
+
+app.post('/delete',function(req,res,next){
+  var context = {};
+  console.log("in delete");
+  console.log(req.body);
+ 
+  
+ 
+  pool.query("DELETE from workouts WHERE id = ?", [req.body.id], function(err, result){  //note the back tick `
+    if(err){
+      next(err);
+      return;
+    }
+	pool.query('SELECT * FROM workouts', function (err, rows, fields) {
+		  if(err) {
+			  next(err);
+			  return;
+		  }
+		  context.results = JSON.stringify(rows);
+         res.render('home',context);
+  });
+});  
+
+});
 app.use(function(req, res) {
 	
   res.status(404);
