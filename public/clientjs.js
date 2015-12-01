@@ -32,7 +32,7 @@ function buildTable() {
 		var tableBody = document.createElement("tbody");
 		for(var i=0; i<data.length; i++) {
 			var newRow = document.createElement("tr");
-			for(var j=0; j<5; j++) {
+			//for(var j=0; j<5; j++) {
 			
 			var newCellName = document.createElement("td");
 			newCellName.textContent = data[i].name;
@@ -61,7 +61,7 @@ function buildTable() {
 			newRow.appendChild(newCellWeight);
 			newRow.appendChild(newCellDate);
 			newRow.appendChild(newDelete);
-			}
+			//}
 			tableBody.appendChild(newRow);
 		}
 		
