@@ -161,7 +161,7 @@ function buildTable() {
 		}
 		});
 		
-        req.send(JSON.stringify(payload));
+        delReq.send(JSON.stringify(payload));
 		event.preventDefault();
 		  
 		//  }
