@@ -48,12 +48,15 @@ function buildTable() {
 			var formInHide = document.createElement("input");
 			formInHide.type = "hidden";
 			formInHide.value = data[i].id;
+			formInHide.id = data[i].id;
 			console.log(formInHide.value);
 			formInHide.name = "Delete";
 			var deleteButton = document.createElement("input");
 			deleteButton.type = "submit";
 			deleteButton.value = "delete";
-			deleteButton.onclick=deleteRow(data[i].id);
+			
+				
+			//deleteButton.onclick=deleteRow(data[i].id);
 			deleteForm.appendChild(formInHide);
 			deleteForm.appendChild(deleteButton);
 			newDelete.appendChild(deleteForm);
@@ -134,11 +137,12 @@ function buildTable() {
 		event.preventDefault();
 		
 	  });
-	 /* document.getElementById("workData").addEventListener('click', function(event) {
+	  document.getElementById("workData").addEventListener('click', function(event) {
 		  console.log("in table listener");
-		  console.log(event.target.name);
+		  console.log(event.target);
+		  console.log(event.target.id);
 		  event.stopPropagation();
-	  }); */
+	  }); 
 	  }
 	  function deleteRow(rowId) {
 		  console.log("In delete function");
