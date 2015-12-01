@@ -146,7 +146,7 @@ function buildTable() {
 		  console.log(event.target.name);
 		  var payload = {};
 		  payload.id = event.target.id;
-		  if(event.target.name = "delete") {
+		  //if(event.target.name = "delete") {
 			req.open("POST", "http://52.26.106.49:3000/delete", true);
 		req.setRequestHeader("Content-Type", "application/json");
 		req.addEventListener("load", function() {
@@ -163,7 +163,7 @@ function buildTable() {
         req.send(JSON.stringify(payload));
 		event.preventDefault();
 		  
-		  }
+		//  }
 		  event.stopPropagation();
 	  }); 
 	  }
