@@ -32,7 +32,7 @@ function buildTable() {
 		var tableBody = document.createElement("tbody");
 		for(var i=0; i<data.length; i++) {
 			var newRow = document.createElement("tr");
-			//for(var j=0; j<5; j++) {
+			for(var j=0; j<5; j++) {
 			
 			var newCellName = document.createElement("td");
 			newCellName.textContent = data[i].name;
@@ -52,7 +52,7 @@ function buildTable() {
 			formInHide.name = "Delete";
 			var deleteButton = document.createElement("input");
 			deleteButton.type = "submit";
-			deleteButton.name = "delete";
+			deleteButton.value = "delete";
 			deleteForm.appendChild(formInHide);
 			deleteForm.appendChild(deleteButton);
 			newDelete.appendChild(deleteForm);
@@ -63,7 +63,7 @@ function buildTable() {
 			newRow.appendChild(newDelete);
 			}
 			tableBody.appendChild(newRow);
-	//	}
+		}
 		
 		
 		//right now this duplicates table...use .textContent instead of append?
