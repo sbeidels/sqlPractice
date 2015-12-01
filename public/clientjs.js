@@ -55,11 +55,12 @@ function buildTable() {
 			deleteButton.name = "delete";
 			deleteForm.appendChild(formInHide);
 			deleteForm.appendChild(deleteButton);
+			newDelete.appendChild(deleteForm);
 			newRow.appendChild(newCellName);
 			newRow.appendChild(newCellRep);
 			newRow.appendChild(newCellWeight);
 			newRow.appendChild(newCellDate);
-			newRow.appendChild(deleteForm);
+			newRow.appendChild(newDelete);
 			}
 			tableBody.appendChild(newRow);
 	//	}
