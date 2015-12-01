@@ -44,7 +44,7 @@ function buildTable() {
 			newCellDate.textContent = data[i].date;
 			var newDelete = document.createElement("td");
 			var deleteForm = document.createElement("form");
-			deleteForm.class = "deleteForm";
+			deleteForm.name = "deleteForm";
 			var formInHide = document.createElement("input");
 			formInHide.type = "hidden";
 			formInHide.value = data[i].id;
@@ -133,6 +133,9 @@ function buildTable() {
 		event.preventDefault();
 		
 	  });
-	  
+	  document.getElementById("workData").addEventListener('click', function(event) {
+		  console.log("in table listener");
+		  console.log(event.target.name);
+	  });
 	  }
 		
