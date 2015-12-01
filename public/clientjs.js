@@ -41,10 +41,23 @@ function buildTable() {
 			newCellWeight.textContent = data[i].weight;
 			var newCellDate = document.createElement("td");
 			newCellDate.textContent = data[i].date;
+			var newDelete = document.createElement("td");
+			var deleteForm = document.createElement("form");
+			deleteForm.class = "deleteForm";
+			var formInHide = document.createElement("input");
+			formInHide.type = "hidden";
+			formInHide.value = data[i].id;
+			formInHide.name = "Delete";
+			var deleteButton = document.createElement("input");
+			deleteButton.type = "submit";
+			deleteButton.name = "delete";
+			deleteForm.appendChild(formInHide);
+			deleteForm.appendChild(deleteButton);
 			newRow.appendChild(newCellName);
 			newRow.appendChild(newCellRep);
 			newRow.appendChild(newCellWeight);
 			newRow.appendChild(newCellDate);
+			newRow.appendChild(deleteForm);
 			}
 			tableBody.appendChild(newRow);
 		}
