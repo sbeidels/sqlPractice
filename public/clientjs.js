@@ -364,16 +364,16 @@ function deleteRow(id) {
 function updateRow(id) {
 	console.log("in update row");
 	console.log(id); 
-	var payload = {};
-	payload.id = id;
+	//var payload = {};
+	//payload.id = id;
 	var upReq = new XMLHttpRequest();
 	upReq.open("GET", "http://52.26.106.49:3000/logID?id=" + id, false);
 	upReq.addEventListener("load", function() {
 	if (upReq.status >= 200 && upReq.status < 400) {
-		//var response = JSON.parse(upReq.responseText);
-		//	var data = JSON.parse(response.results);
+		var response = JSON.parse(upReq.responseText);
+			var data = JSON.parse(response.results);
 			console.log("In update request event listener");
-	//	console.log(upReq.responseText);
+	        console.log(upReq.responseText);
 		
 		
 	  }
