@@ -364,4 +364,25 @@ function deleteRow(id) {
 function updateRow(id) {
 	console.log("in update row");
 	console.log(id);
+	var payload = {};
+	payload.id = id;
+	var upReq = new XMLHttpRequest();
+	upReq.open.open("POST", "http://52.26.106.49:3000/getRow", true);
+	upReq.setRequestHeader("Content-Type", "application/json");
+	upReq.addEventListener("load", function() {
+	if (delReq.status >= 200 && delReq.status < 400) {
+		//var response = JSON.parse(delReq.responseText);
+		//var data = JSON.parse(response.results);
+			      
+		//console.log(delReq.responseText);
+		//buildTable(data);
+		console.log("In update request event listener");
+			  }
+		    else {
+		    console.log("Error in network request: " );
+		}
+		});
+		
+        upReq.send(JSON.stringify(payload));
+		event.preventDefault();
 }
