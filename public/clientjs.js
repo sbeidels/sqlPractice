@@ -56,7 +56,7 @@ function buildTable(data) {
 			var deleteButton = document.createElement("input");
 			deleteButton.type = "submit";
 			deleteButton.value = "delete";
-			deleteButton.onclick = deleteRow(this.formInHide);
+			deleteButton.onclick = deleteRow();
 			
 				
 			//deleteButton.onclick=deleteRow(data[i].id);
@@ -176,7 +176,7 @@ function iniBuildTable() {
 			var deleteButton = document.createElement("input");
 			deleteButton.type = "submit";
 			deleteButton.value = "delete";
-			deleteButton.onclick = deleteRow(this.formInHide);
+			deleteButton.onclick = deleteRow();
 			
 				
 			//deleteButton.onclick=deleteRow(data[i].id);
@@ -361,8 +361,9 @@ function iniBuildTable() {
 	  }*/
 	  
 		
-function deleteRow(row) {
+function deleteRow() {
 	console.log("In delete row");
-	console.log(row);
+	var current = window.event.srcElement;
+	console.log(current);
 	//console.log(row.formInHide.id);
 }
