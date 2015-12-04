@@ -64,6 +64,33 @@ function buildTable(data) {
 			deleteForm.appendChild(formInHide);
 			deleteForm.appendChild(deleteButton);
 			newDelete.appendChild(deleteForm);
+			var newUpdate = document.createElement("td");
+			var updateForm = document.createElement("form");
+			updateForm.name = "updateForm";
+			var formUpHide = document.createElement("input");
+			formUpHide.type = "hidden";
+			formUpHide.value = data[i].id;
+			formUpHide.id = data[i].id;
+			//console.log(formInHide.value);
+			formUpHide.name = "Update";
+			var updateButton = document.createElement("input");
+			updateButton.type = "submit";
+			updateButton.value = "delete";
+			updateButton.name = "delete";
+			updateButton.id = data[i].id;
+			
+				
+			//deleteButton.onclick=deleteRow(data[i].id);
+			updateForm.appendChild(formUpHide);
+			updateForm.appendChild(updateButton);
+			newUpdate.appendChild(updateForm);
+			newRow.appendChild(newCellName);
+			newRow.appendChild(newCellRep);
+			newRow.appendChild(newCellWeight);
+			newRow.appendChild(newCellDate);
+			newRow.appendChild(newCellUnits);
+			newRow.appendChild(newDelete);
+			newRow.appendChild(newUpdate);
 			newRow.appendChild(newCellName);
 			newRow.appendChild(newCellRep);
 			newRow.appendChild(newCellWeight);
@@ -162,12 +189,33 @@ function iniBuildTable() {
 			deleteForm.appendChild(formInHide);
 			deleteForm.appendChild(deleteButton);
 			newDelete.appendChild(deleteForm);
+			var newUpdate = document.createElement("td");
+			var updateForm = document.createElement("form");
+			updateForm.name = "updateForm";
+			var formUpHide = document.createElement("input");
+			formUpHide.type = "hidden";
+			formUpHide.value = data[i].id;
+			formUpHide.id = data[i].id;
+			//console.log(formInHide.value);
+			formUpHide.name = "Update";
+			var updateButton = document.createElement("input");
+			updateButton.type = "submit";
+			updateButton.value = "delete";
+			updateButton.name = "delete";
+			updateButton.id = data[i].id;
+			
+				
+			//deleteButton.onclick=deleteRow(data[i].id);
+			updateForm.appendChild(formUpHide);
+			updateForm.appendChild(updateButton);
+			newUpdate.appendChild(updateForm);
 			newRow.appendChild(newCellName);
 			newRow.appendChild(newCellRep);
 			newRow.appendChild(newCellWeight);
 			newRow.appendChild(newCellDate);
 			newRow.appendChild(newCellUnits);
 			newRow.appendChild(newDelete);
+			newRow.appendChild(newUpdate);
 			//}
 			tableBody.appendChild(newRow);
 		}
