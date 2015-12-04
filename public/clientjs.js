@@ -1,6 +1,6 @@
 console.log("in client js");
 document.addEventListener("DOMContentLoaded", bindButtons);
-document.addEventListener("DOMContentLoaded", buildTable);
+document.addEventListener("DOMContentLoaded", iniBuildTable);
 console.log("in client js");
 
 function buildTable(data) {
@@ -89,6 +89,103 @@ function buildTable(data) {
 		//var data = req.responseText;
 		//document.body.appendChild(newTable);
 		
+		
+	
+	
+	
+}
+function iniBuildTable() {
+	console.log("in ini build table");
+	var req = new XMLHttpRequest();
+	req.open("GET", "http://52.26.106.49:3000/table", true);
+	req.addEventListener("load", function() {
+	if(req.status >=200 && req.status < 400) {
+			
+		
+		//console.log("in get request listener");
+		//console.log(req.responseText);
+		//for(var i=0; i<req.responseText.results.length; i++) {
+		//	console.log(req.responseText.results[i].name);
+		//}
+		//console.log("responseText.results");
+		//console.log(req.responseText.results);
+		//var response = JSON.parse(req.responseText);
+		//var data = JSON.parse(response.results);
+		//var response = req.responseText;
+		for(var i=0; i<data.length; i++) {
+			console.log(data[i].name);
+		}
+				
+		
+		//var upButton = document.createElement("button");
+		//upButton.textContent = "Up";
+		//document.body.appendChild(upButton);
+		var tableBody = document.createElement("tbody");
+		for(var i=0; i<data.length; i++) {
+			var newRow = document.createElement("tr");
+			//for(var j=0; j<5; j++) {
+			
+			var newCellName = document.createElement("td");
+			newCellName.textContent = data[i].name;
+			var newCellRep = document.createElement("td");
+			newCellRep.textContent = data[i].reps;
+			var newCellWeight = document.createElement("td");
+			newCellWeight.textContent = data[i].weight;
+			var newCellDate = document.createElement("td");
+			newCellDate.textContent = data[i].date;
+			var newDelete = document.createElement("td");
+			var deleteForm = document.createElement("form");
+			deleteForm.name = "deleteForm";
+			var formInHide = document.createElement("input");
+			formInHide.type = "hidden";
+			formInHide.value = data[i].id;
+			formInHide.id = data[i].id;
+			console.log(formInHide.value);
+			formInHide.name = "Delete";
+			var deleteButton = document.createElement("input");
+			deleteButton.type = "submit";
+			deleteButton.value = "delete";
+			deleteButton.name = "delete";
+			deleteButton.id = data[i].id;
+			
+				
+			//deleteButton.onclick=deleteRow(data[i].id);
+			deleteForm.appendChild(formInHide);
+			deleteForm.appendChild(deleteButton);
+			newDelete.appendChild(deleteForm);
+			newRow.appendChild(newCellName);
+			newRow.appendChild(newCellRep);
+			newRow.appendChild(newCellWeight);
+			newRow.appendChild(newCellDate);
+			newRow.appendChild(newDelete);
+			//}
+			tableBody.appendChild(newRow);
+		}
+		
+		
+		//right now this duplicates table...use .textContent instead of append?
+		//var newData = document.createElement("td");
+		//newData.textContent = "test";
+		//newRow.appendChild(newData);
+		//tableBody.appendChild(newRow);
+		var oldTable = document.getElementById("workData");
+		var child = document.getElementsByTagName("tbody");
+		for(var i=0; i<child.length; i++) {
+			oldTable.removeChild(child[i]);
+			console.log("node removed");
+		}
+		
+	    oldTable.appendChild(tableBody);
+		//console.log(response.reps);
+		//var data = req.responseText;
+		//document.body.appendChild(newTable);
+	}
+	else {
+		    console.log("Error in network request: " );
+	}
+	req.send(null);
+	event.preventDefault();
+	});
 		
 	
 	
