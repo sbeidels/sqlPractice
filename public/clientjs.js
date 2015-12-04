@@ -367,7 +367,7 @@ function updateRow(id) {
 	var payload = {};
 	payload.id = id;
 	var upReq = new XMLHttpRequest();
-	upReq.open.open("POST", "http://52.26.106.49:3000/getRow", true);
+	upReq.open("POST", "http://52.26.106.49:3000/getRow", true);
 	upReq.setRequestHeader("Content-Type", "application/json");
 	upReq.addEventListener("load", function() {
 	if (delReq.status >= 200 && delReq.status < 400) {
