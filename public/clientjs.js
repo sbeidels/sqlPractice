@@ -255,7 +255,7 @@ function iniBuildTable() {
 			var data = JSON.parse(response.results);
 			console.log("In delete request event listener");
 		   	console.log(delReq.responseText);
-			buildTable();
+			buildTable(data);
 			}
 		  else {
 		    console.log("Error in network request: " );
