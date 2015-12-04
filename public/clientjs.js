@@ -5,22 +5,7 @@ console.log("in client js");
 
 function buildTable(data) {
 	console.log("in build table");
-	//var req = new XMLHttpRequest();
-	//req.open("GET", "http://52.26.106.49:3000/table", true);
-	//req.addEventListener("load", function() {
-	//	if(req.status >=200 && req.status < 400) {
-			
-		
-		//console.log("in get request listener");
-		//console.log(req.responseText);
-		//for(var i=0; i<req.responseText.results.length; i++) {
-		//	console.log(req.responseText.results[i].name);
-		//}
-		//console.log("responseText.results");
-		//console.log(req.responseText.results);
-		//var response = JSON.parse(req.responseText);
-		//var data = JSON.parse(response.results);
-		//var response = req.responseText;
+	
 		for(var i=0; i<data.length; i++) {
 			console.log(data[i].name);
 		}
@@ -32,14 +17,11 @@ function buildTable(data) {
 		}
 				
 		
-		//var upButton = document.createElement("button");
-		//upButton.textContent = "Up";
-		//document.body.appendChild(upButton);
+		
 		var tableBody = document.createElement("tbody");
 		for(var i=0; i<data.length; i++) {
 			var newRow = document.createElement("tr");
-			//for(var j=0; j<5; j++) {
-			
+						
 			var newCellName = document.createElement("td");
 			newCellName.textContent = data[i].name;
 			var newCellRep = document.createElement("td");
@@ -61,18 +43,11 @@ function buildTable(data) {
 			
 			var newDelete = document.createElement("td");
 			newRow.appendChild(newDelete);
-			//var deleteForm = document.createElement("form");
-			//deleteForm.name = "deleteForm";
-			//var formInHide = document.createElement("input");
-			//formInHide.type = "hidden";
-			//formInHide.value = data[i].id;
-			//formInHide.id = data[i].id;
-			//console.log(formInHide.value);
-			//formInHide.name = "Delete";
+			
 			var deleteButton = document.createElement("input");
 			deleteButton.type = "submit";
 			deleteButton.name = "delete";
-			//deleteButton.onclick = deleteRow();
+			
 			newDelete.appendChild(deleteButton);
 			var deleteCell = document.getElementsByName("delete");
 			console.log(deleteCell.length);
@@ -91,76 +66,36 @@ function buildTable(data) {
 			formInHide.name = "id";
 			formInHide.value = data[i].id;
 			newDelete.appendChild(formInHide);
-			/*
-			var newDelete = document.createElement("td");
-			var deleteForm = document.createElement("form");
-			deleteForm.name = "deleteForm";
-			var formInHide = document.createElement("input");
-			formInHide.type = "hidden";
-			formInHide.value = data[i].id;
-			formInHide.id = data[i].id;
-			//console.log(formInHide.value);
-			formInHide.name = "Delete";
-			var deleteButton = document.createElement("input");
-			deleteButton.type = "submit";
-			deleteButton.value = "delete";
-			deleteButton.onclick = deleteRow();
 			
-				
-			//deleteButton.onclick=deleteRow(data[i].id);
-			deleteForm.appendChild(formInHide);
-			deleteForm.appendChild(deleteButton);
-			newDelete.appendChild(deleteForm);*/
 			var newUpdate = document.createElement("td");
-			var updateForm = document.createElement("form");
-			updateForm.name = "updateForm";
-			var formUpHide = document.createElement("input");
-			formUpHide.type = "hidden";
-			formUpHide.value = data[i].id;
-			formUpHide.id = data[i].id;
-			//console.log(formInHide.value);
-			formUpHide.name = "Update";
-			var updateButton = document.createElement("input");
-			updateButton.type = "submit";
-			updateButton.value = "update";
-			updateButton.name = "update";
-			updateButton.id = data[i].id;
-			
-				
-			//deleteButton.onclick=deleteRow(data[i].id);
-			updateForm.appendChild(formUpHide);
-			updateForm.appendChild(updateButton);
-			newUpdate.appendChild(updateForm);
-			
-			newRow.appendChild(newDelete);
 			newRow.appendChild(newUpdate);
 			
-			//}
-			tableBody.appendChild(newRow);
-		}
+			var updateButton = document.createElement("input");
+			updateButton.type = "submit";
+			updateButton.name = "update";
+			
+			newUpdate.appendChild(updateButton);
+			var updateCell = document.getElementsByName("update");
+			console.log(updateCell.length);
+			console.log(i);
+			updateCell[i].addEventListener('click', function (event) {
+				console.log("in event listener");
+				console.log(event);
+				console.log(this.name);
+				var sib = this.nextSibling;
+				console.log(sib.name);
+				console.log(sib.value);
+				updateRow(sib.value);
+			});	
+			var formUpHide = document.createElement("input");
+			formUpHide.type = "hidden";
+			formUpHide.name = "id";
+			formUpHide.value = data[i].id;
+			newUpdate.appendChild(formUpHide);
+			
+			}
 		
 		
-		//right now this duplicates table...use .textContent instead of append?
-		//var newData = document.createElement("td");
-		//newData.textContent = "test";
-		//newRow.appendChild(newData);
-		//tableBody.appendChild(newRow);
-		var oldTable = document.getElementById("workData");
-		var child = document.getElementsByTagName("tbody");
-		for(var i=0; i<child.length; i++) {
-			oldTable.removeChild(child[i]);
-			console.log("node removed");
-		}
-		
-	    oldTable.appendChild(tableBody);
-		//console.log(response.reps);
-		//var data = req.responseText;
-		//document.body.appendChild(newTable);
-		
-		
-	
-	
-	
 }
 
 function iniBuildTable() {
@@ -180,31 +115,15 @@ function iniBuildTable() {
 			console.log("node removed");
 		}
 		
-	    //oldTable.appendChild(tableBody);
-			
-		
-		//console.log("in get request listener");
-		//console.log(req.responseText);
-		//for(var i=0; i<req.responseText.results.length; i++) {
-		//	console.log(req.responseText.results[i].name);
-		//}
-		//console.log("responseText.results");
-		//console.log(req.responseText.results);
+	   
 		var response = JSON.parse(req.responseText);
 		var data = JSON.parse(response.results);
 		//var response = req.responseText;
-		for(var i=0; i<data.length; i++) {
-			console.log(data[i].name);
-		}
-				
 		
-		//var upButton = document.createElement("button");
-		//upButton.textContent = "Up";
-		//document.body.appendChild(upButton);
 		var tableBody = document.createElement("tbody");
 		for(var i=0; i<data.length; i++) {
 			var newRow = document.createElement("tr");
-			//for(var j=0; j<5; j++) {
+			
 			
 			var newCellName = document.createElement("td");
 			newCellName.textContent = data[i].name;
@@ -225,14 +144,7 @@ function iniBuildTable() {
 			oldTable.appendChild(tableBody);
 			var newDelete = document.createElement("td");
 			newRow.appendChild(newDelete);
-			//var deleteForm = document.createElement("form");
-			//deleteForm.name = "deleteForm";
-			//var formInHide = document.createElement("input");
-			//formInHide.type = "hidden";
-			//formInHide.value = data[i].id;
-			//formInHide.id = data[i].id;
-			//console.log(formInHide.value);
-			//formInHide.name = "Delete";
+			
 			var deleteButton = document.createElement("input");
 			deleteButton.type = "submit";
 			deleteButton.name = "delete";
@@ -259,57 +171,38 @@ function iniBuildTable() {
 			formInHide.name = "id";
 			formInHide.value = data[i].id;
 			newDelete.appendChild(formInHide);
-			//console.log("In delete button listener");
-			//console.log("formInHide.value is: " + formInHide.value);
 			
-				
-			//deleteButton.onclick=deleteRow(data[i].id);
-			//deleteForm.appendChild(formInHide);
-			//deleteForm.appendChild(deleteButton);
-			//newDelete.appendChild(deleteForm);
-			//deleteButton.onclick = (function(i) {
-			//	return function()
-			//	{
-			//		console.log(data[i].id);
-			//	}
-			//}(deleteButton));
 			var newUpdate = document.createElement("td");
-			var updateForm = document.createElement("form");
-			updateForm.name = "updateForm";
-			var formUpHide = document.createElement("input");
-			formUpHide.type = "hidden";
-			formUpHide.value = data[i].id;
-			formUpHide.id = data[i].id;
-			//console.log(formInHide.value);
-			formUpHide.name = "Update";
+			newRow.appendChild(newUpdate);
+			
 			var updateButton = document.createElement("input");
 			updateButton.type = "submit";
-			updateButton.value = "update";
 			updateButton.name = "update";
-			updateButton.id = data[i].id;
 			
-				
-			//deleteButton.onclick=deleteRow(data[i].id);
-			updateForm.appendChild(formUpHide);
-			updateForm.appendChild(updateButton);
-			newUpdate.appendChild(updateForm);
+			newUpdate.appendChild(updateButton);
+			var updateCell = document.getElementsByName("update");
+			console.log(updateCell.length);
+			console.log(i);
+			updateCell[i].addEventListener('click', function (event) {
+				console.log("in event listener");
+				console.log(event);
+				console.log(this.name);
+				var sib = this.nextSibling;
+				console.log(sib.name);
+				console.log(sib.value);
+				updateRow(sib.value);
+			});	
+			var formUpHide = document.createElement("input");
+			formUpHide.type = "hidden";
+			formUpHide.name = "id";
+			formUpHide.value = data[i].id;
+			newUpdate.appendChild(formUpHide);
 			
-			//newRow.appendChild(newDelete);
-			newRow.appendChild(newUpdate);
-			//}
-			//tableBody.appendChild(newRow);
+			
 		}
 		
 		
-		//right now this duplicates table...use .textContent instead of append?
-		//var newData = document.createElement("td");
-		//newData.textContent = "test";
-		//newRow.appendChild(newData);
-		//tableBody.appendChild(newRow);
 		
-		//console.log(response.reps);
-		//var data = req.responseText;
-		//document.body.appendChild(newTable);
 	}
 	else {
 		    console.log("Error in network request: " );
@@ -466,4 +359,9 @@ function deleteRow(id) {
 		event.preventDefault();
 		  
 	
+}
+
+function updateRow(id) {
+	console.log("in update row");
+	console.log("id");
 }
