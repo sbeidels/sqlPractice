@@ -210,7 +210,7 @@ function iniBuildTable() {
 		var units2Current = document.getElementById("kgsbutton").value;
 		console.log(unitsCurrent);
 		console.log(units2Current);
-		if(document.getElementByID("lbsbutton").checked) {
+		if(document.getElementById("lbsbutton").checked) {
 			var units = document.getElementById("lbsbutton").value;
 			console.log("lbs was checked");
 		}
