@@ -140,7 +140,7 @@ app.get('/logID', function(req,res,next) {
 	res.type=('json');
 	res.send(context);
 	//res.render('update', context);
-})
+});
 
 
 app.get('/getRow',function(req,res,next){
