@@ -241,15 +241,15 @@ function iniBuildTable() {
 			console.log("data id is: " + data[i].id);
 			//var id = data[i].id;
 			//console.log("id is " + id);
-			deleteCell[i].addEventListener('click', function(event) {
-				var formInHide = document.createElement("input");
-				formInHide.type = "hidden";
-				formInHide.name = "id";
-				formInHide.value = data[i].id;
-				newDelete.appendChild(formInHide);
-				console.log("In delete button listener");
-				console.log("formInHide.value is: " + formInHide.value);
-			});	
+			deleteCell[i].addEventListener('click', deleteRow(this));	
+			var formInHide = document.createElement("input");
+			formInHide.type = "hidden";
+			formInHide.name = "id";
+			formInHide.value = data[i].id;
+			newDelete.appendChild(formInHide);
+			//console.log("In delete button listener");
+			//console.log("formInHide.value is: " + formInHide.value);
+			
 				
 			//deleteButton.onclick=deleteRow(data[i].id);
 			//deleteForm.appendChild(formInHide);
@@ -422,9 +422,10 @@ function iniBuildTable() {
 	  }*/
 	  
 		
-function deleteRow() {
+function deleteRow(row) {
 	console.log("In delete row");
 	var current = window.event.srcElement;
-	console.log(current);
+	console.log("current: " + current);
+	console.log("row" + row);
 	//console.log(row.formInHide.id);
 }
