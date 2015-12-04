@@ -74,7 +74,7 @@ function buildTable(data) {
 				newDelete.appendChild(formInHide);
 				console.log("In delete button listener");
 				console.log("formInHide.value is: " + formInHide.value);
-			}	
+			});	
 			
 			/*
 			var newDelete = document.createElement("td");
