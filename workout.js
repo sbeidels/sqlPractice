@@ -60,7 +60,7 @@ app.get('/reset-table',function(req,res,next){
   });
 });
 
-app.get('/table', function(req, res, next) {
+/*app.get('/table', function(req, res, next) {
 		console.log("in app get");
 	  var context = {};
 	  pool.query('SELECT * FROM workouts', function (err, rows, fields) {
@@ -76,7 +76,7 @@ app.get('/table', function(req, res, next) {
 		  res.send(context);
 		  //res.render('home', context);
 	  });
-  });
+  }); */
 
 app.post('/insert',function(req,res,next){
   var context = {};
@@ -98,7 +98,8 @@ app.post('/insert',function(req,res,next){
 			  return;
 		  }
 		  context.results = JSON.stringify(rows);
-         res.render('home',context);
+          res.type('json');
+		  res.send(context);
   });
 });  
 
@@ -122,7 +123,8 @@ app.post('/delete',function(req,res,next){
 			  return;
 		  }
 		  context.results = JSON.stringify(rows);
-         res.render('home',context);
+          res.type('json');
+		  res.send(context);
   });
 });  
 

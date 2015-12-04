@@ -3,32 +3,32 @@ document.addEventListener("DOMContentLoaded", bindButtons);
 document.addEventListener("DOMContentLoaded", buildTable);
 console.log("in client js");
 
-function buildTable() {
+function buildTable(data) {
 	console.log("in build table");
-	var req = new XMLHttpRequest();
-	req.open("GET", "http://52.26.106.49:3000/table", true);
-	req.addEventListener("load", function() {
-		if(req.status >=200 && req.status < 400) {
+	//var req = new XMLHttpRequest();
+	//req.open("GET", "http://52.26.106.49:3000/table", true);
+	//req.addEventListener("load", function() {
+	//	if(req.status >=200 && req.status < 400) {
 			
 		
-		console.log("in get request listener");
-		console.log(req.responseText);
+		//console.log("in get request listener");
+		//console.log(req.responseText);
 		//for(var i=0; i<req.responseText.results.length; i++) {
 		//	console.log(req.responseText.results[i].name);
 		//}
 		//console.log("responseText.results");
 		//console.log(req.responseText.results);
-		var response = JSON.parse(req.responseText);
-		var data = JSON.parse(response.results);
+		//var response = JSON.parse(req.responseText);
+		//var data = JSON.parse(response.results);
 		//var response = req.responseText;
 		for(var i=0; i<data.length; i++) {
 			console.log(data[i].name);
 		}
 				
 		
-		var upButton = document.createElement("button");
-		upButton.textContent = "Up";
-		document.body.appendChild(upButton);
+		//var upButton = document.createElement("button");
+		//upButton.textContent = "Up";
+		//document.body.appendChild(upButton);
 		var tableBody = document.createElement("tbody");
 		for(var i=0; i<data.length; i++) {
 			var newRow = document.createElement("tr");
@@ -89,14 +89,9 @@ function buildTable() {
 		//var data = req.responseText;
 		//document.body.appendChild(newTable);
 		
-		}
-		else {
-			console.log("Error in network request: " + req.statusText);
-		}
-	});
-	req.send(null);
-	console.log("request sent");
-	event.preventDefault();
+		
+	
+	
 	
 }
 
@@ -124,12 +119,14 @@ function buildTable() {
 		req.addEventListener("load", function() {
 		  if (req.status >= 200 && req.status < 400) {
 			console.log("In request event listener");
+			var response = JSON.parse(req.responseText);
+			var data = JSON.parse(response.results);
 		    //var response = JSON.parse(req.responseText);
 			//var dataString = JSON.parse(response.data);
 			//document.getElementById("returnedInput").textContent = dataString.textIn;
 			//console.log(response.data);
-			console.log(req.responseText);
-			buildTable();
+			//console.log(req.responseText);
+			buildTable(data);
 			}
 		  else {
 		    console.log("Error in network request: " );
@@ -152,6 +149,8 @@ function buildTable() {
 		    delReq.setRequestHeader("Content-Type", "application/json");
 		    delReq.addEventListener("load", function() {
 		      if (delReq.status >= 200 && delReq.status < 400) {
+				  var response = JSON.parse(delReq.responseText);
+			var data = JSON.parse(response.results);
 			console.log("In delete request event listener");
 		   	console.log(delReq.responseText);
 			buildTable();
