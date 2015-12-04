@@ -199,7 +199,9 @@ function iniBuildTable() {
 				var sib = this.nextSibling;
 				console.log(sib.name);
 				console.log(sib.value);
-				updateForm.setAttribute('action', "http://52.26.106.49:3000/logID?id=" + sib.value);
+				var sibString = toString(sib.value);
+				
+				updateForm.setAttribute('action', "http://52.26.106.49:3000/logID?id=" + sibString);
 			});	
 			var formUpHide = document.createElement("input");
 			formUpHide.type = "hidden";
