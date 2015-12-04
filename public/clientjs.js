@@ -238,11 +238,13 @@ function iniBuildTable() {
 			var deleteCell = document.getElementsByName("delete");
 			console.log(deleteCell.length);
 			console.log(i);
+			var id = data[i].id;
+			console.log("id is " + id);
 			deleteCell[i].addEventListener('click', function(event) {
 				var formInHide = document.createElement("input");
 				formInHide.type = "hidden";
 				formInHide.name = "id";
-				formInHide.value = data[i].id;
+				formInHide.value = id;
 				newDelete.appendChild(formInHide);
 				console.log("In delete button listener");
 				console.log("formInHide.value is: " + formInHide.value);
