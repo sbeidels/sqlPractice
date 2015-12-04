@@ -367,8 +367,7 @@ function updateRow(id) {
 	var payload = {};
 	payload.id = id;
 	var upReq = new XMLHttpRequest();
-	upReq.open("POST", "http://52.26.106.49:3000/getRow", true);
-	upReq.setRequestHeader("Content-Type", "application/json");
+	upReq.open("GET", "http://52.26.106.49:3000/getRow?id=" + id, true);
 	upReq.addEventListener("load", function() {
 	if (upReq.status >= 200 && upReq.status < 400) {
 		//var response = JSON.parse(delReq.responseText);
@@ -376,13 +375,13 @@ function updateRow(id) {
 			      
 		//console.log(delReq.responseText);
 		//buildTable(data);
-		console.log("In update request event listener");
+		console.log("request sent");
 			  }
 		    else {
 		    console.log("Error in network request: " );
 		}
 		});
 		
-        upReq.send(JSON.stringify(payload));
+        upReq.send(null);
 		event.preventDefault();
 }
