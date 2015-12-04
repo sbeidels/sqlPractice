@@ -139,7 +139,7 @@ app.post('/getRow',function(req,res,next){
   
  
     }
-	pool.query('SELECT * FROM workouts WHERE id = ?', [req.body.id]. function (err, rows, fields) {
+	pool.query('SELECT * FROM workouts WHERE id = ?', [req.body.id], function (err, rows, fields) {
 		  if(err) {
 			  next(err);
 			  return;
