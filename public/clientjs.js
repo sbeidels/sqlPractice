@@ -181,8 +181,9 @@ function iniBuildTable() {
 			var newUpdate = document.createElement("td");
 			newRow.appendChild(newUpdate);
 			var updateForm = document.createElement("form");
+			var query = {id: null};
 			updateForm.method = 'GET';
-			updateForm.action = "http://52.26.106.49:3000/logID?id=33";
+			updateForm.action = "http://52.26.106.49:3000/logID?" + query.id;
 			
 			newUpdate.appendChild(updateForm);
 			var updateButton = document.createElement("input");
@@ -201,7 +202,7 @@ function iniBuildTable() {
 				console.log(sib.name);
 				console.log(sib.value);
 				var sibString = String(sib.value);
-				console.log(sibString);
+				query.id = sibString;
 				event.stopPropagation();
 			});	
 			var formUpHide = document.createElement("input");
