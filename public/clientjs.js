@@ -376,6 +376,8 @@ function updateRow(id) {
 		//console.log(delReq.responseText);
 		//buildTable(data);
 		console.log("request sent");
+		var response = JSON.parse(upReq.responseText);
+		var data = JSON.parse(response.results);
 			  }
 		    else {
 		    console.log("Error in network request: " );
