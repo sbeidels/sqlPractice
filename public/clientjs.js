@@ -69,12 +69,16 @@ function buildTable(data) {
 			
 			var newUpdate = document.createElement("td");
 			newRow.appendChild(newUpdate);
+			var updateForm = document.createElement("form");
+			updateForm.setAttribute('method', 'GET');
+			
+			newUpdate.appendChild(updateForm);
 			
 			var updateButton = document.createElement("input");
 			updateButton.type = "submit";
 			updateButton.name = "update";
 			
-			newUpdate.appendChild(updateButton);
+			updateForm.appendChild(updateButton);
 			var updateCell = document.getElementsByName("update");
 			console.log(updateCell.length);
 			console.log(i);
@@ -85,13 +89,14 @@ function buildTable(data) {
 				var sib = this.nextSibling;
 				console.log(sib.name);
 				console.log(sib.value);
-				updateRow(sib.value);
+				updateForm.setAttribute('action', "http://52.26.106.49:3000/logID?id=" + sib.value);
+				
 			});	
 			var formUpHide = document.createElement("input");
 			formUpHide.type = "hidden";
 			formUpHide.name = "id";
 			formUpHide.value = data[i].id;
-			newUpdate.appendChild(formUpHide);
+			updateForm.appendChild(formUpHide);
 			
 			}
 		
@@ -172,14 +177,18 @@ function iniBuildTable() {
 			formInHide.value = data[i].id;
 			newDelete.appendChild(formInHide);
 			
+			
 			var newUpdate = document.createElement("td");
 			newRow.appendChild(newUpdate);
+			var updateForm = document.createElement("form");
+			updateForm.setAttribute('method', 'GET');
 			
+			newUpdate.appendChild(updateForm);
 			var updateButton = document.createElement("input");
 			updateButton.type = "submit";
 			updateButton.name = "update";
 			
-			newUpdate.appendChild(updateButton);
+			updateForm.appendChild(updateButton);
 			var updateCell = document.getElementsByName("update");
 			console.log(updateCell.length);
 			console.log(i);
@@ -190,13 +199,13 @@ function iniBuildTable() {
 				var sib = this.nextSibling;
 				console.log(sib.name);
 				console.log(sib.value);
-				updateRow(sib.value);
+				updateForm.setAttribute('action', "http://52.26.106.49:3000/logID?id=" + sib.value);
 			});	
 			var formUpHide = document.createElement("input");
 			formUpHide.type = "hidden";
 			formUpHide.name = "id";
 			formUpHide.value = data[i].id;
-			newUpdate.appendChild(formUpHide);
+			updateForm.appendChild(formUpHide);
 			
 			
 		}
@@ -360,7 +369,7 @@ function deleteRow(id) {
 		  
 	
 }
-
+/*
 function updateRow(id) {
 	console.log("in update row");
 	console.log(id); 
@@ -385,4 +394,4 @@ function updateRow(id) {
 		
         upReq.send(null);
 		//event.preventDefault();
-}
+}*/
