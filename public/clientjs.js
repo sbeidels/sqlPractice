@@ -221,7 +221,7 @@ function iniBuildTable() {
 				newDelete.appendChild(formInHide);
 				console.log("In delete button listener");
 				console.log("formInHide.value is: " + formInHide.value);
-			}	
+			});	
 				
 			//deleteButton.onclick=deleteRow(data[i].id);
 			//deleteForm.appendChild(formInHide);
