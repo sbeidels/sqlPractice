@@ -131,6 +131,30 @@ app.post('/delete',function(req,res,next){
 });  
 
 });
+
+app.post('/getRow',function(req,res,next){
+  var context = {};
+  console.log("in get row");
+    
+  
+ 
+    }
+	pool.query('SELECT * FROM workouts WHERE id = ?', [req.body.id]. function (err, rows, fields) {
+		  if(err) {
+			  next(err);
+			  return;
+		  }
+		  context.results = JSON.stringify(rows);
+		  context.data = JSON.stringify(context.results);
+		  console.log(context.results);
+		  console.log(context.data);
+         // res.type('json');
+		  //res.send(context);
+		  res.render("update", context);
+  });
+});  
+
+});
 app.use(function(req, res) {
 	
   res.status(404);
