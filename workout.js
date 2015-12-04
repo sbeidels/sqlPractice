@@ -147,6 +147,7 @@ app.get('/getRow',function(req,res,next){
 		  else {
 			  console.log(result);
 			  context.results = JSON.stringify(result);
+			  console.log(context.results);
 			  res.type('json');
 			  res.send(context);
 			  //res.render('update', context);
