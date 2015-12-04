@@ -137,6 +137,8 @@ function iniBuildTable() {
 			newCellWeight.textContent = data[i].weight;
 			var newCellDate = document.createElement("td");
 			newCellDate.textContent = data[i].date;
+			var newCellUnits = document.createElement("td");
+			newCellUnits.textContent = data[i].units;
 			var newDelete = document.createElement("td");
 			var deleteForm = document.createElement("form");
 			deleteForm.name = "deleteForm";
@@ -161,6 +163,7 @@ function iniBuildTable() {
 			newRow.appendChild(newCellRep);
 			newRow.appendChild(newCellWeight);
 			newRow.appendChild(newCellDate);
+			newRow.appendChild(newCellUnits);
 			newRow.appendChild(newDelete);
 			//}
 			tableBody.appendChild(newRow);
@@ -211,11 +214,11 @@ function iniBuildTable() {
 		console.log(unitsCurrent);
 		console.log(units2Current);
 		if(document.getElementById("lbsbutton").checked) {
-			var units = document.getElementById("lbsbutton").value;
+			var units = 1;
 			console.log("lbs was checked");
 		}
 		else {
-			var units = document.getElementById("kgsbutton").value;
+			var units = 0;
 			console.log("kgs was checked");
 		}
 		

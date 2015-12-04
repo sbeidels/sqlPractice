@@ -88,7 +88,7 @@ app.post('/insert',function(req,res,next){
   
   
  
-  pool.query("INSERT INTO workouts (`name`, `reps`, `weight`, `date`) VALUES (?,?,?,?)", [req.body.name, req.body.reps, req.body.weight, req.body.date], function(err, result){  //note the back tick `
+  pool.query("INSERT INTO workouts (`name`, `reps`, `weight`, `date`, `lbs`) VALUES (?,?,?,?,?)", [req.body.name, req.body.reps, req.body.weight, req.body.date, req.body.units], function(err, result){  //note the back tick `
     if(err){
       next(err);
       return;
