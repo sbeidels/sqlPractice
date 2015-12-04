@@ -55,9 +55,9 @@ function buildTable(data) {
 			formInHide.name = "Delete";
 			var deleteButton = document.createElement("input");
 			deleteButton.type = "submit";
-			deleteButton.value = data[i].id;
+			deleteButton.value = "delete";
 			deleteButton.name = "delete";
-			//deleteButton.id = data[i].id;
+			deleteButton.id = data[i].id;
 			
 				
 			//deleteButton.onclick=deleteRow(data[i].id);
@@ -75,9 +75,9 @@ function buildTable(data) {
 			formUpHide.name = "Update";
 			var updateButton = document.createElement("input");
 			updateButton.type = "submit";
-			updateButton.value = data[i].id;
+			updateButton.value = "update";
 			updateButton.name = "update";
-			//updateButton.id = data[i].id;
+			updateButton.id = data[i].id;
 			
 				
 			//deleteButton.onclick=deleteRow(data[i].id);
@@ -91,13 +91,7 @@ function buildTable(data) {
 			newRow.appendChild(newCellUnits);
 			newRow.appendChild(newDelete);
 			newRow.appendChild(newUpdate);
-			newRow.appendChild(newCellName);
-			newRow.appendChild(newCellRep);
-			newRow.appendChild(newCellWeight);
-			newRow.appendChild(newCellDate);
-			newRow.appendChild(newCellUnits);
-			newRow.appendChild(newDelete);
-			newRow.appendChild(newUpdate);
+			
 			//}
 			tableBody.appendChild(newRow);
 		}
@@ -181,9 +175,9 @@ function iniBuildTable() {
 			formInHide.name = "Delete";
 			var deleteButton = document.createElement("input");
 			deleteButton.type = "submit";
-			deleteButton.value = data[i].id;
+			deleteButton.value = "delete";
 			deleteButton.name = "delete";
-			//deleteButton.id = data[i].id;
+			deleteButton.id = data[i].id;
 			
 				
 			//deleteButton.onclick=deleteRow(data[i].id);
@@ -201,9 +195,9 @@ function iniBuildTable() {
 			formUpHide.name = "Update";
 			var updateButton = document.createElement("input");
 			updateButton.type = "submit";
-			updateButton.value = data[i].id;
+			updateButton.value = "update";
 			updateButton.name = "update";
-			//updateButton.id = data[i].id;
+			updateButton.id = data[i].id;
 			
 				
 			//deleteButton.onclick=deleteRow(data[i].id);
