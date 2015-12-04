@@ -44,6 +44,39 @@ function buildTable(data) {
 			newCellDate.textContent = data[i].date;
 			var newCellUnits = document.createElement("td");
 			newCellUnits.textContent = data[i].lbs;
+			newRow.appendChild(newCellName);
+			newRow.appendChild(newCellRep);
+			newRow.appendChild(newCellWeight);
+			newRow.appendChild(newCellDate);
+			newRow.appendChild(newCellUnits);
+			
+			
+			var newDelete = document.createElement("td");
+			newRow.appendChild(newDelete);
+			//var deleteForm = document.createElement("form");
+			//deleteForm.name = "deleteForm";
+			//var formInHide = document.createElement("input");
+			//formInHide.type = "hidden";
+			//formInHide.value = data[i].id;
+			//formInHide.id = data[i].id;
+			//console.log(formInHide.value);
+			//formInHide.name = "Delete";
+			var deleteButton = document.createElement("button");
+			deleteButton.type = "submit";
+			deleteButton.name = "delete";
+			//deleteButton.onclick = deleteRow();
+			newDelete.appendChild(deleteButton);
+			document.getElementsByName("deleteButton").addEventListener('click', function(event) {
+				var formInHide = document.createElement("input");
+				formInHide.type = "hidden";
+				formInHide.name = id;
+				formInHide.value = data[i].id;
+				newDelete.appendChild(formInHide);
+				console.log("In delete button listener");
+				console.log("formInHide.value is: " + formInHide.value);
+			}	
+			
+			/*
 			var newDelete = document.createElement("td");
 			var deleteForm = document.createElement("form");
 			deleteForm.name = "deleteForm";
@@ -62,7 +95,7 @@ function buildTable(data) {
 			//deleteButton.onclick=deleteRow(data[i].id);
 			deleteForm.appendChild(formInHide);
 			deleteForm.appendChild(deleteButton);
-			newDelete.appendChild(deleteForm);
+			newDelete.appendChild(deleteForm);*/
 			var newUpdate = document.createElement("td");
 			var updateForm = document.createElement("form");
 			updateForm.name = "updateForm";
@@ -83,11 +116,7 @@ function buildTable(data) {
 			updateForm.appendChild(formUpHide);
 			updateForm.appendChild(updateButton);
 			newUpdate.appendChild(updateForm);
-			newRow.appendChild(newCellName);
-			newRow.appendChild(newCellRep);
-			newRow.appendChild(newCellWeight);
-			newRow.appendChild(newCellDate);
-			newRow.appendChild(newCellUnits);
+			
 			newRow.appendChild(newDelete);
 			newRow.appendChild(newUpdate);
 			
@@ -164,25 +193,40 @@ function iniBuildTable() {
 			newCellDate.textContent = data[i].date;
 			var newCellUnits = document.createElement("td");
 			newCellUnits.textContent = data[i].lbs;
+			newRow.appendChild(newCellName);
+			newRow.appendChild(newCellRep);
+			newRow.appendChild(newCellWeight);
+			newRow.appendChild(newCellDate);
+			newRow.appendChild(newCellUnits);
 			var newDelete = document.createElement("td");
-			var deleteForm = document.createElement("form");
-			deleteForm.name = "deleteForm";
-			var formInHide = document.createElement("input");
-			formInHide.type = "hidden";
-			formInHide.value = data[i].id;
-			formInHide.id = data[i].id;
-			console.log(formInHide.value);
-			formInHide.name = "Delete";
-			var deleteButton = document.createElement("input");
+			newRow.appendChild(newDelete);
+			//var deleteForm = document.createElement("form");
+			//deleteForm.name = "deleteForm";
+			//var formInHide = document.createElement("input");
+			//formInHide.type = "hidden";
+			//formInHide.value = data[i].id;
+			//formInHide.id = data[i].id;
+			//console.log(formInHide.value);
+			//formInHide.name = "Delete";
+			var deleteButton = document.createElement("button");
 			deleteButton.type = "submit";
-			deleteButton.value = "delete";
-			deleteButton.onclick = deleteRow();
-			
+			deleteButton.name = "delete";
+			//deleteButton.onclick = deleteRow();
+			newDelete.appendChild(deleteButton);
+			document.getElementsByName("deleteButton").addEventListener('click', function(event) {
+				var formInHide = document.createElement("input");
+				formInHide.type = "hidden";
+				formInHide.name = id;
+				formInHide.value = data[i].id;
+				newDelete.appendChild(formInHide);
+				console.log("In delete button listener");
+				console.log("formInHide.value is: " + formInHide.value);
+			}	
 				
 			//deleteButton.onclick=deleteRow(data[i].id);
-			deleteForm.appendChild(formInHide);
-			deleteForm.appendChild(deleteButton);
-			newDelete.appendChild(deleteForm);
+			//deleteForm.appendChild(formInHide);
+			//deleteForm.appendChild(deleteButton);
+			//newDelete.appendChild(deleteForm);
 			var newUpdate = document.createElement("td");
 			var updateForm = document.createElement("form");
 			updateForm.name = "updateForm";
@@ -203,12 +247,8 @@ function iniBuildTable() {
 			updateForm.appendChild(formUpHide);
 			updateForm.appendChild(updateButton);
 			newUpdate.appendChild(updateForm);
-			newRow.appendChild(newCellName);
-			newRow.appendChild(newCellRep);
-			newRow.appendChild(newCellWeight);
-			newRow.appendChild(newCellDate);
-			newRow.appendChild(newCellUnits);
-			newRow.appendChild(newDelete);
+			
+			//newRow.appendChild(newDelete);
 			newRow.appendChild(newUpdate);
 			//}
 			tableBody.appendChild(newRow);
