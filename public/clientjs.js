@@ -302,9 +302,9 @@ function iniBuildTable() {
 		  console.log(event.target);
 		  console.log(event.target.value);
 		  console.log(event.target.name);
-		  if(event.target.name = "delete"){
+		  if(event.target.value = "delete"){
 		  var payload = {};
-		  payload.id = event.target.value;
+		  payload.id = event.target.id;
 		  var delReq = new XMLHttpRequest();
 		  //if(event.target.name = "delete") {
 			delReq.open("POST", "http://52.26.106.49:3000/delete", true);
@@ -330,9 +330,9 @@ function iniBuildTable() {
 	  }
 	  else {
 		  console.log("not delete");
-		  if(event.target.name = "update") {
+		  if(event.target.value = "update") {
 			  var payload = {};
-			  payload.id = event.target.value;
+			  payload.id = event.target.id;
 			  var upReq = new XMLHttpRequest();
 			  upReq.open.open("POST", "http://52.26.106.49:3000/getRow", true);
 		      upReq.setRequestHeader("Content-Type", "application/json");
