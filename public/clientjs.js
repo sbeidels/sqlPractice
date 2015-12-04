@@ -24,6 +24,12 @@ function buildTable(data) {
 		for(var i=0; i<data.length; i++) {
 			console.log(data[i].name);
 		}
+		var oldTable = document.getElementById("workData");
+		var child = document.getElementsByTagName("tbody");
+		for(var i=0; i<child.length; i++) {
+			oldTable.removeChild(child[i]);
+			console.log("node removed");
+		}
 				
 		
 		//var upButton = document.createElement("button");
@@ -49,6 +55,8 @@ function buildTable(data) {
 			newRow.appendChild(newCellWeight);
 			newRow.appendChild(newCellDate);
 			newRow.appendChild(newCellUnits);
+			tableBody.appendChild(newRow);
+			oldTable.appendChild(tableBody);
 			
 			
 			var newDelete = document.createElement("td");
