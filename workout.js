@@ -36,7 +36,7 @@ app.get('/', function(req, res, next) {
 		  console.log("about to send");
 		  //res.type('json');
 		  //res.send(context);
-		  res.render('home', context);
+		  res.render('update', context);
 	  });
   });
 
