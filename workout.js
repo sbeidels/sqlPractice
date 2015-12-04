@@ -138,7 +138,7 @@ app.post('/getRow',function(req,res,next){
     
   
  
-    }
+    
 	pool.query('SELECT * FROM workouts WHERE id = ?', [req.body.id], function (err, result) {
 		  if(err) {
 			  next(err);
@@ -159,7 +159,7 @@ app.post('/getRow',function(req,res,next){
   });
 });  
 
-});
+
 app.use(function(req, res) {
 	
   res.status(404);
