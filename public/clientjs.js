@@ -55,9 +55,9 @@ function buildTable(data) {
 			formInHide.name = "Delete";
 			var deleteButton = document.createElement("input");
 			deleteButton.type = "submit";
-			deleteButton.value = "delete";
+			deleteButton.value = data[i].id;
 			deleteButton.name = "delete";
-			deleteButton.id = data[i].id;
+			//deleteButton.id = data[i].id;
 			
 				
 			//deleteButton.onclick=deleteRow(data[i].id);
@@ -75,9 +75,9 @@ function buildTable(data) {
 			formUpHide.name = "Update";
 			var updateButton = document.createElement("input");
 			updateButton.type = "submit";
-			updateButton.value = "update";
+			updateButton.value = data[i].id;
 			updateButton.name = "update";
-			updateButton.id = data[i].id;
+			//updateButton.id = data[i].id;
 			
 				
 			//deleteButton.onclick=deleteRow(data[i].id);
@@ -180,9 +180,9 @@ function iniBuildTable() {
 			formInHide.name = "Delete";
 			var deleteButton = document.createElement("input");
 			deleteButton.type = "submit";
-			deleteButton.value = "delete";
+			deleteButton.value = data[i].id;
 			deleteButton.name = "delete";
-			deleteButton.id = data[i].id;
+			//deleteButton.id = data[i].id;
 			
 				
 			//deleteButton.onclick=deleteRow(data[i].id);
@@ -200,9 +200,9 @@ function iniBuildTable() {
 			formUpHide.name = "Update";
 			var updateButton = document.createElement("input");
 			updateButton.type = "submit";
-			updateButton.value = "update";
+			updateButton.value = data[i].id;
 			updateButton.name = "update";
-			updateButton.id = data[i].id;
+			//updateButton.id = data[i].id;
 			
 				
 			//deleteButton.onclick=deleteRow(data[i].id);
@@ -305,11 +305,11 @@ function iniBuildTable() {
 	  document.getElementById("workData").addEventListener('click', function(event) {
 		  console.log("in table listener");
 		  console.log(event.target);
-		  console.log(event.target.id);
+		  console.log(event.target.value);
 		  console.log(event.target.name);
 		  if(event.target.name = "delete"){
 		  var payload = {};
-		  payload.id = event.target.id;
+		  payload.id = event.target.value;
 		  var delReq = new XMLHttpRequest();
 		  //if(event.target.name = "delete") {
 			delReq.open("POST", "http://52.26.106.49:3000/delete", true);
@@ -337,7 +337,7 @@ function iniBuildTable() {
 		  console.log("not delete");
 		  if(event.target.name = "update") {
 			  var payload = {};
-			  payload.id = event.target.id;
+			  payload.id = event.target.value;
 			  var upReq = new XMLHttpRequest();
 			  upReq.open.open("POST", "http://52.26.106.49:3000/getRow", true);
 		      upReq.setRequestHeader("Content-Type", "application/json");
