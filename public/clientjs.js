@@ -371,8 +371,8 @@ function updateRow(id) {
 	upReq.addEventListener("load", function() {
 	if (upReq.status >= 200 && upReq.status < 400) {
 		console.log("in load if");
-		var response = JSON.parse(upReq.responseText);
-			var data = JSON.parse(response.results);
+		//var response = JSON.parse(upReq.responseText);
+			//var data = JSON.parse(response.results);
 			console.log("In update request event listener");
 	        console.log(upReq.responseText);
 		
