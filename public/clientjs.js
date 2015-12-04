@@ -77,16 +77,19 @@ function buildTable(data) {
 			var deleteCell = document.getElementsByName("delete");
 			console.log(deleteCell.length);
 			console.log(i);
-			deleteCell[i].addEventListener('click', function(event) {
-				var formInHide = document.createElement("input");
-				formInHide.type = "hidden";
-				formInHide.name = "id";
-				formInHide.value = data[i].id;
-				newDelete.appendChild(formInHide);
-				console.log("In delete button listener");
-				console.log("formInHide.value is: " + formInHide.value);
+			deleteCell[i].addEventListener('click', function (event) {
+				console.log("in event listener");
+				console.log(event);
+				console.log(this.name);
+				var sib = this.nextSibling;
+				console.log(sib.name);
+				console.log(sib.value);
+				deleteRow(sib.value);
 			});	
-			
+			var formInHide = document.createElement("input");
+			formInHide.type = "hidden";
+			formInHide.name = "id";
+			formInHide.value = data[i].id;
 			/*
 			var newDelete = document.createElement("td");
 			var deleteForm = document.createElement("form");
@@ -439,4 +442,27 @@ function iniBuildTable() {
 function deleteRow(id) {
 	console.log("In delete row");
 	console.log(id);
+	var payload = {};
+	payload.id = id;
+	var delReq = new XMLHttpRequest();
+		 
+	delReq.open("POST", "http://52.26.106.49:3000/delete", true);
+	delReq.setRequestHeader("Content-Type", "application/json");
+	delReq.addEventListener("load", function() {
+		if (delReq.status >= 200 && delReq.status < 400) {
+			var response = JSON.parse(delReq.responseText);
+			var data = JSON.parse(response.results);
+			console.log("In delete request event listener");
+		   	console.log(delReq.responseText);
+			buildTable(data);
+			}
+		  else {
+		    console.log("Error in network request: " );
+		}
+		});
+		
+        delReq.send(JSON.stringify(payload));
+		event.preventDefault();
+		  
+	
 }
