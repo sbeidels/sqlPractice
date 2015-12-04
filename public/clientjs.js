@@ -203,6 +203,8 @@ function iniBuildTable() {
 				console.log(sibString);
 				
 				updateForm.action = "http://52.26.106.49:3000/logID?id=" + sibString;
+				event.preventDefault();
+				event.stopPropagation();
 			});	
 			var formUpHide = document.createElement("input");
 			formUpHide.type = "hidden";
