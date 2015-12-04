@@ -90,6 +90,7 @@ function buildTable(data) {
 			formInHide.type = "hidden";
 			formInHide.name = "id";
 			formInHide.value = data[i].id;
+			newDelete.appendChild(formInHide);
 			/*
 			var newDelete = document.createElement("td");
 			var deleteForm = document.createElement("form");
