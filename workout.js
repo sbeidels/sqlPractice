@@ -99,6 +99,7 @@ app.post('/insert',function(req,res,next){
 			  return;
 		  }
 		  context.results = JSON.stringify(rows);
+		  console.log(context.results);
           res.type('json');
 		  res.send(context);
   });
