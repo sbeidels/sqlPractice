@@ -43,7 +43,7 @@ function buildTable(data) {
 			var newCellDate = document.createElement("td");
 			newCellDate.textContent = data[i].date;
 			var newCellUnits = document.createElement("td");
-			newCellUnits.textContent = data[i].units;
+			newCellUnits.textContent = data[i].lbs;
 			var newDelete = document.createElement("td");
 			var deleteForm = document.createElement("form");
 			deleteForm.name = "deleteForm";
@@ -141,7 +141,7 @@ function iniBuildTable() {
 			var newCellDate = document.createElement("td");
 			newCellDate.textContent = data[i].date;
 			var newCellUnits = document.createElement("td");
-			newCellUnits.textContent = data[i].units;
+			newCellUnits.textContent = data[i].lbs;
 			var newDelete = document.createElement("td");
 			var deleteForm = document.createElement("form");
 			deleteForm.name = "deleteForm";
