@@ -259,6 +259,7 @@ function iniBuildTable() {
 		  console.log(event.target);
 		  console.log(event.target.id);
 		  console.log(event.target.name);
+		  if(event.target.name = "delete"){
 		  var payload = {};
 		  payload.id = event.target.id;
 		  var delReq = new XMLHttpRequest();
@@ -283,7 +284,11 @@ function iniBuildTable() {
 		  
 		//  }
 		  event.stopPropagation();
+	  }
+	  else {
+		  console.log("not delete");
+	  }
 	  }); 
 	  }
-	 
+	  
 		
