@@ -100,6 +100,8 @@ function iniBuildTable() {
 	req.open("GET", "http://52.26.106.49:3000/table", true);
 	req.addEventListener("load", function() {
 	if(req.status >=200 && req.status < 400) {
+		console.log("in if");
+		console.log(req.responseText);
 			
 		
 		//console.log("in get request listener");
@@ -109,8 +111,8 @@ function iniBuildTable() {
 		//}
 		//console.log("responseText.results");
 		//console.log(req.responseText.results);
-		//var response = JSON.parse(req.responseText);
-		//var data = JSON.parse(response.results);
+		var response = JSON.parse(req.responseText);
+		var data = JSON.parse(response.results);
 		//var response = req.responseText;
 		for(var i=0; i<data.length; i++) {
 			console.log(data[i].name);
