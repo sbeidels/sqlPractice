@@ -61,7 +61,8 @@ app.get('/reset-table',function(req,res,next){
 });
 
 app.get('/table', function(req, res, next) {
-		console.log("in app get");
+		console.log("in table get");
+		
 	  var context = {};
 	  pool.query('SELECT * FROM workouts', function (err, rows, fields) {
 		  if(err) {

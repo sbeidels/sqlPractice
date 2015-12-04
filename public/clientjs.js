@@ -98,7 +98,9 @@ function iniBuildTable() {
 	console.log("in ini build table");
 	var req = new XMLHttpRequest();
 	req.open("GET", "http://52.26.106.49:3000/table", true);
+	console.log("request open");
 	req.addEventListener("load", function() {
+		console.log("in ini load");
 	if(req.status >=200 && req.status < 400) {
 		console.log("in if");
 		console.log(req.responseText);
@@ -186,7 +188,8 @@ function iniBuildTable() {
 		    console.log("Error in network request: " );
 	}
 	req.send(null);
-	event.preventDefault();
+	console.log("request sent");
+	
 	});
 		
 	
