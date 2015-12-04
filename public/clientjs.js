@@ -199,7 +199,7 @@ function iniBuildTable() {
 				var sib = this.nextSibling;
 				console.log(sib.name);
 				console.log(sib.value);
-				var sibString = toString(sib.value);
+				var sibString = String(sib.value);
 				console.log(sibString);
 				
 				updateForm.action = "http://52.26.106.49:3000/logID?id=" + sibString;
