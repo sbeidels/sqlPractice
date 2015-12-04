@@ -370,6 +370,7 @@ function updateRow(id) {
 	upReq.open("GET", "http://52.26.106.49:3000/logID?id=" + id, true);
 	upReq.addEventListener("load", function() {
 	if (upReq.status >= 200 && upReq.status < 400) {
+		console.log("in load if");
 		var response = JSON.parse(upReq.responseText);
 			var data = JSON.parse(response.results);
 			console.log("In update request event listener");
