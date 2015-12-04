@@ -51,13 +51,12 @@ function buildTable(data) {
 			formInHide.type = "hidden";
 			formInHide.value = data[i].id;
 			formInHide.id = data[i].id;
-			console.log(formInHide.value);
+			//console.log(formInHide.value);
 			formInHide.name = "Delete";
 			var deleteButton = document.createElement("input");
 			deleteButton.type = "submit";
 			deleteButton.value = "delete";
-			deleteButton.name = "delete";
-			deleteButton.id = data[i].id;
+			deleteButton.onclick = deleteRow(this);
 			
 				
 			//deleteButton.onclick=deleteRow(data[i].id);
@@ -119,6 +118,7 @@ function buildTable(data) {
 	
 	
 }
+
 function iniBuildTable() {
 	console.log("in ini build table");
 	var req = new XMLHttpRequest();
@@ -176,8 +176,7 @@ function iniBuildTable() {
 			var deleteButton = document.createElement("input");
 			deleteButton.type = "submit";
 			deleteButton.value = "delete";
-			deleteButton.name = "delete";
-			deleteButton.id = data[i].id;
+			deleteButton.onclick = deleteRow(this);
 			
 				
 			//deleteButton.onclick=deleteRow(data[i].id);
@@ -297,7 +296,8 @@ function iniBuildTable() {
 		event.preventDefault();
 		
 	  });
-	  document.getElementById("workData").addEventListener('click', function(event) {
+	  }
+	  /*document.getElementById("workData").addEventListener('click', function(event) {
 		  console.log("in table listener");
 		  console.log(event.target);
 		  console.log(event.target.value);
@@ -338,11 +338,11 @@ function iniBuildTable() {
 		      upReq.setRequestHeader("Content-Type", "application/json");
 		      upReq.addEventListener("load", function() {
 		      if (delReq.status >= 200 && delReq.status < 400) {
-				 /* var response = JSON.parse(delReq.responseText);
+				  var response = JSON.parse(delReq.responseText);
 			      var data = JSON.parse(response.results);
 			      
 		   	      console.log(delReq.responseText);
-			      buildTable(data);*/
+			      buildTable(data);
 				  console.log("In update request event listener");
 			  }
 		    else {
@@ -358,6 +358,11 @@ function iniBuildTable() {
 		  }
 	  }
 	  }); 
-	  }
+	  }*/
 	  
 		
+function deleteRow(row) {
+	console.log("In delete row");
+	console.log(row);
+	console.log(row.formInHide.id);
+}
