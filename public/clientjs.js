@@ -370,15 +370,11 @@ function updateRow(id) {
 	upReq.open("GET", "http://52.26.106.49:3000/getRow?id=" + id, true);
 	upReq.addEventListener("load", function() {
 	if (upReq.status >= 200 && upReq.status < 400) {
-		var response = JSON.parse(upReq.responseText);
-			var data = JSON.parse(response.results);
+		//var response = JSON.parse(upReq.responseText);
+		//	var data = JSON.parse(response.results);
 			console.log("In update request event listener");
-		   	console.log(upReq.responseText);
-		//var response = JSON.parse(delReq.responseText);
-		//var data = JSON.parse(response.results);
-			      
-		//console.log(delReq.responseText);
-		//buildTable(data);
+		//   	console.log(upReq.responseText);
+		
 		
 			  }
 		    else {
