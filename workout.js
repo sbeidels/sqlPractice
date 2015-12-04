@@ -138,9 +138,9 @@ app.get('/logID', function(req,res,next) {
 	console.log(req.query.id);
 	context.id = req.query.id;
 	//context.id = JSON.stringify(req.query.id);
-	res.type=('text/plain');
-	res.send(context);
-	//res.render('update', context);
+	//res.type=('text/plain');
+	//res.send(context);
+	res.render('update', context);
 });
 
 

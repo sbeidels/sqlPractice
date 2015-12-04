@@ -384,5 +384,5 @@ function updateRow(id) {
 		});
 		
         upReq.send(null);
-		//event.preventDefault();
+		event.preventDefault();
 }
