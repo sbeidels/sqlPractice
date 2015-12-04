@@ -210,12 +210,21 @@ function iniBuildTable() {
 		var units2Current = document.getElementById("kgsbutton").value;
 		console.log(unitsCurrent);
 		console.log(units2Current);
+		if(document.getElementByID('lbsbutton').checked) {
+			var units = document.getElementById("lbsbutton").value;
+			console.log("lbs was checked");
+		}
+		else {
+			var units = document.getElementById("kgsbutton").value;
+			console.log("kgs was checked");
+		}
 		
 		var payload = {};
 		payload.name=workName;
 		payload.reps=repsCurrent;
 		payload.weight=weightCurrent;
 		payload.date=dateCurrent;
+		payload.units=units;
 		console.log(JSON.stringify(payload));
 		req.open("POST", "http://52.26.106.49:3000/insert", true);
 		req.setRequestHeader("Content-Type", "application/json");
