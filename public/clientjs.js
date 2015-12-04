@@ -256,7 +256,7 @@ function iniBuildTable() {
 			//deleteForm.appendChild(deleteButton);
 			//newDelete.appendChild(deleteForm);
 			deleteButton.onclick = (function(deleteButton) {
-				return function();
+				return function()
 				{
 					var sib = deleteButton.nextSibling;
 					var id = sib.value;
