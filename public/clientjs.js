@@ -241,7 +241,11 @@ function iniBuildTable() {
 			console.log("data id is: " + data[i].id);
 			//var id = data[i].id;
 			//console.log("id is " + id);
-			deleteCell[i].addEventListener('click', deleteRow(event, newDelete));	
+			deleteCell[i].addEventListener('click', function (event) {
+				console.log("in event listener");
+				console.log(event);
+				console.log(this.name);
+			});	
 			var formInHide = document.createElement("input");
 			formInHide.type = "hidden";
 			formInHide.name = "id";
