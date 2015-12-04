@@ -255,12 +255,10 @@ function iniBuildTable() {
 			//deleteForm.appendChild(formInHide);
 			//deleteForm.appendChild(deleteButton);
 			//newDelete.appendChild(deleteForm);
-			deleteButton.onclick = (function(deleteButton) {
+			deleteButton.onclick = (function(data[i].id) {
 				return function()
 				{
-					var sib = deleteButton.nextSibling;
-					var id = sib.value;
-					console.log(value);
+					console.log(data[i].id);
 				}
 			}(deleteButton));
 			var newUpdate = document.createElement("td");
