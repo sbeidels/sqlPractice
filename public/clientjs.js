@@ -206,9 +206,10 @@ function iniBuildTable() {
 		var repsCurrent = document.getElementById("reps").value;
 		var weightCurrent = document.getElementById("weight").value;
 		var dateCurrent = document.getElementById("date").value;
-		//var unitsCurrent = document.getElementById("lbsbutton").value;
-		//var units2Current = document.getElementById("kgsbutton").value;
-		
+		var unitsCurrent = document.getElementById("lbsbutton").value;
+		var units2Current = document.getElementById("kgsbutton").value;
+		console.log(unitsCurrent);
+		console.log(units2Current);
 		
 		var payload = {};
 		payload.name=workName;
