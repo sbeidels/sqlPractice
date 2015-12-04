@@ -182,7 +182,7 @@ function iniBuildTable() {
 			newRow.appendChild(newUpdate);
 			var updateForm = document.createElement("form");
 			updateForm.method = 'GET';
-			updateForm.action = "http://52.26.106.49:3000/logID?id=" + sibString;
+			updateForm.action = "http://52.26.106.49:3000/logID?id=33";
 			
 			newUpdate.appendChild(updateForm);
 			var updateButton = document.createElement("input");
@@ -202,8 +202,6 @@ function iniBuildTable() {
 				console.log(sib.value);
 				var sibString = String(sib.value);
 				console.log(sibString);
-				//updateForm.action = "http://52.26.106.49:3000/logID?id=" + sibString;
-				//event.preventDefault();
 				event.stopPropagation();
 			});	
 			var formUpHide = document.createElement("input");
