@@ -42,6 +42,8 @@ function buildTable(data) {
 			newCellWeight.textContent = data[i].weight;
 			var newCellDate = document.createElement("td");
 			newCellDate.textContent = data[i].date;
+			var newCellUnits = document.createElement("td");
+			newCellUnits.textContent = data[i].units;
 			var newDelete = document.createElement("td");
 			var deleteForm = document.createElement("form");
 			deleteForm.name = "deleteForm";
@@ -66,6 +68,7 @@ function buildTable(data) {
 			newRow.appendChild(newCellRep);
 			newRow.appendChild(newCellWeight);
 			newRow.appendChild(newCellDate);
+			newRow.appendChild(newCellUnits);
 			newRow.appendChild(newDelete);
 			//}
 			tableBody.appendChild(newRow);
