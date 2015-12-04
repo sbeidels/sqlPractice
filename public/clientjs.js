@@ -368,20 +368,20 @@ function updateRow(id) {
 	payload.id = id;
 	var upReq = new XMLHttpRequest();
 	upReq.open("GET", "http://52.26.106.49:3000/getRow?id=" + id, true);
-	upReq.addEventListener("load", function() {
-	if (upReq.status >= 200 && upReq.status < 400) {
+	//upReq.addEventListener("load", function() {
+	//if (upReq.status >= 200 && upReq.status < 400) {
 		//var response = JSON.parse(upReq.responseText);
 		//	var data = JSON.parse(response.results);
-			console.log("In update request event listener");
-		//   	console.log(upReq.responseText);
+	//		console.log("In update request event listener");
+		//console.log(upReq.responseText);
 		
 		
-			  }
-		    else {
-		    console.log("Error in network request: " );
-		}
-		});
+	//		  }
+	//	    else {
+	//	    console.log("Error in network request: " );
+		//}
+		//});
 		
         upReq.send(null);
-		event.preventDefault();
+		//event.preventDefault();
 }
