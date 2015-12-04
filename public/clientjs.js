@@ -187,12 +187,12 @@ function iniBuildTable() {
 	else {
 		    console.log("Error in network request: " );
 	}
-	req.send(null);
-	console.log("request sent");
+	
 	
 	});
 		
-	
+	req.send(null);
+	console.log("request sent");
 	
 	
 }
