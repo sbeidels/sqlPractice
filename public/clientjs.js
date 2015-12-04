@@ -66,7 +66,7 @@ function buildTable(data) {
 			deleteButton.name = "delete";
 			//deleteButton.onclick = deleteRow();
 			newDelete.appendChild(deleteButton);
-			var deleteCell = document.getElementsByName("deleteButton");
+			var deleteCell = document.getElementsByName("delete");
 			deleteCell[i].addEventListener('click', function(event) {
 				var formInHide = document.createElement("input");
 				formInHide.type = "hidden";
@@ -214,7 +214,7 @@ function iniBuildTable() {
 			deleteButton.name = "delete";
 			//deleteButton.onclick = deleteRow();
 			newDelete.appendChild(deleteButton);
-			var deleteCell = document.getElementsByName("deleteButton");
+			var deleteCell = document.getElementsByName("delete");
 			deleteCell[i].addEventListener('click', function(event) {
 				var formInHide = document.createElement("input");
 				formInHide.type = "hidden";
