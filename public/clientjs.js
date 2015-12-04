@@ -363,5 +363,5 @@ function deleteRow(id) {
 
 function updateRow(id) {
 	console.log("in update row");
-	console.log("id");
+	console.log(id);
 }
