@@ -248,6 +248,7 @@ function iniBuildTable() {
 				var sib = this.nextSibling;
 				console.log(sib.name);
 				console.log(sib.value);
+				deleteRow(sib.value);
 			});	
 			var formInHide = document.createElement("input");
 			formInHide.type = "hidden";
@@ -435,10 +436,7 @@ function iniBuildTable() {
 	  }*/
 	  
 		
-function deleteRow(row) {
+function deleteRow(id) {
 	console.log("In delete row");
-	var current = window.event.srcElement;
-	console.log("current: " + current);
-	console.log("row" + row);
-	//console.log(row.formInHide.id);
+	console.log(id);
 }
