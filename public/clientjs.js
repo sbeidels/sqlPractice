@@ -367,7 +367,7 @@ function updateRow(id) {
 	var payload = {};
 	payload.id = id;
 	var upReq = new XMLHttpRequest();
-	upReq.open("GET", "http://52.26.106.49:3000/getRow?id=" + id, true);
+	upReq.open("GET", "http://52.26.106.49:3000/logID?id=" + id, true);
 	//upReq.addEventListener("load", function() {
 	//if (upReq.status >= 200 && upReq.status < 400) {
 		//var response = JSON.parse(upReq.responseText);

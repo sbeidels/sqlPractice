@@ -132,6 +132,15 @@ app.post('/delete',function(req,res,next){
 
 });
 
+app.get('/logID', function(req,res,next) {
+	var context = {};
+	console.log("in log ID");
+	console.log(req.query.id);
+	context.id = req.query.id;
+	res.render('update', context);
+})
+
+
 app.get('/getRow',function(req,res,next){
   var context = {};
   console.log("in get row");
