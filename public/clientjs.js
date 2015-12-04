@@ -245,6 +245,9 @@ function iniBuildTable() {
 				console.log("in event listener");
 				console.log(event);
 				console.log(this.name);
+				var sib = this.nextSibling;
+				console.log(sib.name);
+				console.log(sib.value);
 			});	
 			var formInHide = document.createElement("input");
 			formInHide.type = "hidden";
