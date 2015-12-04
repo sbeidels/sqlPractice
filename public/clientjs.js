@@ -97,6 +97,7 @@ function buildTable(data) {
 			newRow.appendChild(newCellDate);
 			newRow.appendChild(newCellUnits);
 			newRow.appendChild(newDelete);
+			newRow.appendChild(newUpdate);
 			//}
 			tableBody.appendChild(newRow);
 		}
