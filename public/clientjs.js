@@ -61,12 +61,14 @@ function buildTable(data) {
 			//formInHide.id = data[i].id;
 			//console.log(formInHide.value);
 			//formInHide.name = "Delete";
-			var deleteButton = document.createElement("button");
+			var deleteButton = document.createElement("input");
 			deleteButton.type = "submit";
 			deleteButton.name = "delete";
 			//deleteButton.onclick = deleteRow();
 			newDelete.appendChild(deleteButton);
 			var deleteCell = document.getElementsByName("delete");
+			console.log(deleteCell.length);
+			console.log(i);
 			deleteCell[i].addEventListener('click', function(event) {
 				var formInHide = document.createElement("input");
 				formInHide.type = "hidden";
@@ -159,6 +161,14 @@ function iniBuildTable() {
 	if(req.status >=200 && req.status < 400) {
 		console.log("in if");
 		console.log(req.responseText);
+		var oldTable = document.getElementById("workData");
+		var child = document.getElementsByTagName("tbody");
+		for(var i=0; i<child.length; i++) {
+			oldTable.removeChild(child[i]);
+			console.log("node removed");
+		}
+		
+	    //oldTable.appendChild(tableBody);
 			
 		
 		//console.log("in get request listener");
@@ -199,6 +209,8 @@ function iniBuildTable() {
 			newRow.appendChild(newCellWeight);
 			newRow.appendChild(newCellDate);
 			newRow.appendChild(newCellUnits);
+			tableBody.appendChild(newRow);
+			oldTable.appendChild(tableBody);
 			var newDelete = document.createElement("td");
 			newRow.appendChild(newDelete);
 			//var deleteForm = document.createElement("form");
@@ -209,12 +221,15 @@ function iniBuildTable() {
 			//formInHide.id = data[i].id;
 			//console.log(formInHide.value);
 			//formInHide.name = "Delete";
-			var deleteButton = document.createElement("button");
+			var deleteButton = document.createElement("input");
 			deleteButton.type = "submit";
 			deleteButton.name = "delete";
 			//deleteButton.onclick = deleteRow();
 			newDelete.appendChild(deleteButton);
+			
 			var deleteCell = document.getElementsByName("delete");
+			console.log(deleteCell.length);
+			console.log(i);
 			deleteCell[i].addEventListener('click', function(event) {
 				var formInHide = document.createElement("input");
 				formInHide.type = "hidden";
@@ -253,7 +268,7 @@ function iniBuildTable() {
 			//newRow.appendChild(newDelete);
 			newRow.appendChild(newUpdate);
 			//}
-			tableBody.appendChild(newRow);
+			//tableBody.appendChild(newRow);
 		}
 		
 		
@@ -262,14 +277,7 @@ function iniBuildTable() {
 		//newData.textContent = "test";
 		//newRow.appendChild(newData);
 		//tableBody.appendChild(newRow);
-		var oldTable = document.getElementById("workData");
-		var child = document.getElementsByTagName("tbody");
-		for(var i=0; i<child.length; i++) {
-			oldTable.removeChild(child[i]);
-			console.log("node removed");
-		}
 		
-	    oldTable.appendChild(tableBody);
 		//console.log(response.reps);
 		//var data = req.responseText;
 		//document.body.appendChild(newTable);
