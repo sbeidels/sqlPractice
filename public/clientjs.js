@@ -241,7 +241,7 @@ function iniBuildTable() {
 			console.log("data id is: " + data[i].id);
 			//var id = data[i].id;
 			//console.log("id is " + id);
-			deleteCell[i].addEventListener('click', deleteRow(newDelete));	
+			//deleteCell[i].addEventListener('click', deleteRow(newDelete));	
 			var formInHide = document.createElement("input");
 			formInHide.type = "hidden";
 			formInHide.name = "id";
@@ -255,6 +255,14 @@ function iniBuildTable() {
 			//deleteForm.appendChild(formInHide);
 			//deleteForm.appendChild(deleteButton);
 			//newDelete.appendChild(deleteForm);
+			deleteButton.onclick = (function(deleteButton) {
+				return function();
+				{
+					var sib = deleteButton.nextSibling;
+					var id = sib.value;
+					console.log(value);
+				}
+			}(deleteButton));
 			var newUpdate = document.createElement("td");
 			var updateForm = document.createElement("form");
 			updateForm.name = "updateForm";
