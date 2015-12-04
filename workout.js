@@ -132,14 +132,14 @@ app.post('/delete',function(req,res,next){
 
 });
 
-app.post('/getRow',function(req,res,next){
+app.get('/getRow',function(req,res,next){
   var context = {};
   console.log("in get row");
     
   
  
     
-	pool.query('SELECT * FROM workouts WHERE id = ?', [req.body.id], function (err, result) {
+	pool.query('SELECT * FROM workouts WHERE id = ?', [req.query.id], function (err, result) {
 		  if(err) {
 			  next(err);
 			  return;
