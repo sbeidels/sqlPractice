@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", getData);
 
+
+function getData () {
 document.getElementById("editNum").addEventListener('click', function(event) {
 	var req = new XMLHttpRequest();
 	var payload = {};
@@ -28,4 +30,4 @@ document.getElementById("editNum").addEventListener('click', function(event) {
 		
 	  });
 	  
-		
+}		
