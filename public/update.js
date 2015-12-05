@@ -2,12 +2,13 @@ document.addEventListener("DOMContentLoaded", getData);
 
 console.log("in update.js");
 function getData () {
-	var req = new XMLHttpRequest();
-	var payload = {};
+		var req = new XMLHttpRequest();
+		var payload = {};
 		var id = document.getElementById("hiddenVal").value;
 		payload.id = id;
 		console.log(JSON.stringify(payload));
 		req.open("POST", "http://52.26.106.49:3000/getRow", true);
+		console.log("request open");
 		req.setRequestHeader("Content-Type", "application/json");
 		req.addEventListener("load", function() {
 		  if (req.status >= 200 && req.status < 400) {
