@@ -16,11 +16,11 @@ function getData () {
 			var response = JSON.parse(req.responseText);
 			var data = JSON.parse(response.results);
 			console.log(req.responseText);
-			document.getElementById('workName').value = data[0].id;
+			document.getElementById('workName').value = data[0].name;
 			document.getElementById('reps').value = data[0].reps;
 			document.getElementById('weight').value = data[0].weight;
 			document.getElementById('date').value = data[0].date;
-			if(data.[0] == 1) {
+			if(data[0].lbs == 1) {
 				document.getElementById('lbsbutton').checked = true;
 			}
 			else {
