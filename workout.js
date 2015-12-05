@@ -174,6 +174,49 @@ app.post('/getRow', function(req,res,next){
   });
 });  
 
+app.post('/update',function(req,res,next){
+  var context = {};
+  console.log("in update");
+   pool.query("SELECT * FROM workouts WHERE id=?", [req.body.id], function(err, result){
+    if(err){
+      next(err);
+      return;
+    }
+    if(result.length == 1){
+      pool.query("UPDATE workouts SET name=?, reps=?, weight=?, date=?, lbs=? WHERE id=? ",
+        [req.body.name, req.body.reps, req.body.weight, req.body.date, req.body.units, req.body.id],
+        function(err, result){
+        if(err){
+          next(err);
+          return;
+        }
+        
+        res.render('home',context);
+      });
+    }
+  });
+});
+  
+ 
+  pool.query("INSERT INTO workouts (`name`, `reps`, `weight`, `date`, `lbs`) VALUES (?,?,?,?,?)", [req.body.name, req.body.reps, req.body.weight, req.body.date, req.body.units], function(err, result){  //note the back tick `
+    if(err){
+      next(err);
+      return;
+    }
+	pool.query('SELECT * FROM workouts', function (err, rows, fields) {
+		  if(err) {
+			  next(err);
+			  return;
+		  }
+		  context.results = JSON.stringify(rows);
+		  console.log(context.results);
+          res.type('json');
+		  res.send(context);
+  });
+});  
+
+});
+
 
 app.use(function(req, res) {
 	
