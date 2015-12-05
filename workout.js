@@ -85,6 +85,18 @@ app.post('/insert',function(req,res,next){
   console.log(req.body);
   console.log("print name");
   console.log(req.body.name);
+  if(req.body.name == "") {
+	  pool.query('SELECT * FROM workouts', function (err, rows, fields) {
+		  if(err) {
+			  next(err);
+			  return;
+		  }
+		  context.results = JSON.stringify(rows);
+		  console.log(context.results);
+          res.type('json');
+		  res.send(context);
+  });
+  }
   
   
  
