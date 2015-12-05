@@ -17,6 +17,15 @@ function getData () {
 			var data = JSON.parse(response.results);
 			console.log(req.responseText);
 			document.getElementById('workName').value = data[0].id;
+			document.getElementById('reps').value = data[0].reps;
+			document.getElementById('weight').value = data[0].weight;
+			document.getElementById('date').value = data[0].date;
+			if(data.[0] == 1) {
+				document.getElementById('lbsbutton').checked = true;
+			}
+			else {
+				document.getElementById('kgsbutton').checked = true;
+			}
 		    //var response = JSON.parse(req.responseText);
 			//var dataString = JSON.parse(response.data);
 			//document.getElementById("returnedInput").textContent = dataString.textIn;
