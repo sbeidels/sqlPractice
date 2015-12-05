@@ -14,6 +14,8 @@ document.getElementById("editNum").addEventListener('click', function(event) {
 			console.log("In request event listener");
 			var response = JSON.parse(req.responseText);
 			var data = JSON.parse(response.results);
+			console.log(req.responseText);
+			document.getElementById('workName').value = data[0].id;
 		    //var response = JSON.parse(req.responseText);
 			//var dataString = JSON.parse(response.data);
 			//document.getElementById("returnedInput").textContent = dataString.textIn;
