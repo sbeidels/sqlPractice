@@ -79,13 +79,13 @@ function bindUpdate() {
 			console.log("In request event listener");
 			var response = JSON.parse(req.responseText);
 			var data = JSON.parse(response.results);
-			window.location.assign("http://52.26.106.49:3000/update");
+			window.location.assign("http://52.26.106.49:3000/");
 		    //var response = JSON.parse(req.responseText);
 			//var dataString = JSON.parse(response.data);
 			//document.getElementById("returnedInput").textContent = dataString.textIn;
 			//console.log(response.data);
 			//console.log(req.responseText);
-			buildTable(data);
+			//buildTable(data);
 			}
 		  else {
 		    console.log("Error in network request: " );
