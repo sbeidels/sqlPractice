@@ -1,8 +1,7 @@
 document.addEventListener("DOMContentLoaded", getData);
 
-
+console.log("in update.js");
 function getData () {
-document.getElementById("editNum").addEventListener('click', function(event) {
 	var req = new XMLHttpRequest();
 	var payload = {};
 		payload.id = getElementById("editNum").textContent;
@@ -30,6 +29,6 @@ document.getElementById("editNum").addEventListener('click', function(event) {
         req.send(JSON.stringify(payload));
 		event.preventDefault();
 		
-	  });
+	 
 	  
 }		
