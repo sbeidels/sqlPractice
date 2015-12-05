@@ -1,3 +1,7 @@
+/*Sarah Beidelschies
+  CS290 Database and UI interactions
+*/
+
 var express = require('express');
 var app = express();
 
@@ -21,9 +25,8 @@ var pool = mysql.createPool({
   database: 'student'
 });
 
-
+/*on page load, send table contents, render home page */
 app.get('/', function(req, res, next) {
-		console.log("in app get");
 	  var context = {};
 	  pool.query('SELECT * FROM workouts', function (err, rows, fields) {
 		  if(err) {
@@ -32,11 +35,7 @@ app.get('/', function(req, res, next) {
 		  }
 		  context.results = JSON.stringify(rows);
 		  
-		  console.log(context.results);
-		  console.log("about to send");
-		  //res.type('json');
-		  //res.send(context);
-		  res.render('home', context);
+		 res.render('home', context);
 	  });
   });
 
@@ -60,9 +59,10 @@ app.get('/reset-table',function(req,res,next){
   });
 });
 
+
+/*send table contents to client js file via json object*/
 app.get('/table', function(req, res, next) {
-		console.log("in table get");
-		
+			
 	  var context = {};
 	  pool.query('SELECT * FROM workouts', function (err, rows, fields) {
 		  if(err) {
@@ -71,14 +71,13 @@ app.get('/table', function(req, res, next) {
 		  }
 		  context.results = JSON.stringify(rows);
 		  
-		 // console.log(context.results);
-		 // console.log("about to send");
 		  res.type('json');
 		  res.send(context);
-		  //res.render('home', context);
+		  
 	  });
   }); 
 
+/*insert user input into table and send update table contents to client js file via json object*/  
 app.post('/insert',function(req,res,next){
   var context = {};
   pool.query("INSERT INTO workouts (`name`, `reps`, `weight`, `date`, `lbs`) VALUES (?,?,?,?,?)", [req.body.name, req.body.reps, req.body.weight, req.body.date, req.body.units], function(err, result){  //note the back tick `
@@ -92,21 +91,17 @@ app.post('/insert',function(req,res,next){
 			  return;
 		  }
 		  context.results = JSON.stringify(rows);
-		  console.log(context.results);
-          res.type('json');
+		  res.type('json');
 		  res.send(context);
   });
 });  
 
 });
 
+/*delete user specified row from table and send back updated table contents to client js file via json object*/
 app.post('/delete',function(req,res,next){
   var context = {};
-  console.log("in delete");
-  console.log(req.body);
- 
-  
- 
+   
   pool.query("DELETE from workouts WHERE id = ?", [req.body.id], function(err, result){  //note the back tick `
     if(err){
       next(err);
@@ -125,52 +120,37 @@ app.post('/delete',function(req,res,next){
 
 });
 
+
+
+/*set query id to context.id.  Render new page 'update' */
 app.get('/logID', function(req,res,next) {
 	var context = {};
-	console.log("in log ID");
-	console.log(req.query.id);
 	context.id = req.query.id;
-	//context.id = JSON.stringify(req.query.id);
-	//res.type=('text/plain');
-	//res.send(context);
 	res.render('update', context);
 });
 
 
+/*get row data based on user input id.  Send row contents to client js as json object*/
 app.post('/getRow', function(req,res,next){
   var context = {};
-  console.log("in get row");
-    
-  
- 
-    
-	pool.query('SELECT * FROM workouts WHERE id = ?', [req.body.id], function (err, result) {
+  	pool.query('SELECT * FROM workouts WHERE id = ?', [req.body.id], function (err, result) {
 		  if(err) {
 			  next(err);
 			  return;
 		  }
 		  else {
-			  console.log(result);
 			  context.results = JSON.stringify(result);
-			  console.log(context.results);
-			res.type('json');
-			res.send(context);
-			 //res.render('update', context);
+			  res.type('json');
+			  res.send(context);
+			 
 		  }
-		  /*context.results = JSON.stringify(rows);
-		  context.data = JSON.stringify(context.results);
-		  console.log(context.results);
-		  console.log(context.data);
-         // res.type('json');
-		  //res.send(context);
-		  res.render("update", context);*/
-  });
+	});
 });  
 
+/*update row with user input id based on new user input.  Send updated table contents to client js file as json object*/
 app.post('/update',function(req,res,next){
   var context = {};
-  console.log("in update");
-   pool.query("SELECT * FROM workouts WHERE id=?", [req.body.id], function(err, result){
+  pool.query("SELECT * FROM workouts WHERE id=?", [req.body.id], function(err, result){
     if(err){
       next(err);
       return;
@@ -183,9 +163,9 @@ app.post('/update',function(req,res,next){
          }
         
         else {
-			console.log(result);
+			
 			  context.results = JSON.stringify(result);
-			  console.log(context.results);
+			  
 			res.type('json');
 			res.send(context);
 		}
@@ -196,7 +176,7 @@ app.post('/update',function(req,res,next){
 });
   
  
- 
+/*error handling/listener handling */
 app.use(function(req, res) {
 	
   res.status(404);
