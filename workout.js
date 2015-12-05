@@ -81,25 +81,6 @@ app.get('/table', function(req, res, next) {
 
 app.post('/insert',function(req,res,next){
   var context = {};
-  console.log("in insert");
-  console.log(req.body);
-  console.log("print name");
-  console.log(req.body.name);
-  if(req.body.name == "") {
-	  pool.query('SELECT * FROM workouts', function (err, rows, fields) {
-		  if(err) {
-			  next(err);
-			  return;
-		  }
-		  context.results = JSON.stringify(rows);
-		  console.log(context.results);
-          res.type('json');
-		  res.send(context);
-  });
-  }
-  
-  
- 
   pool.query("INSERT INTO workouts (`name`, `reps`, `weight`, `date`, `lbs`) VALUES (?,?,?,?,?)", [req.body.name, req.body.reps, req.body.weight, req.body.date, req.body.units], function(err, result){  //note the back tick `
     if(err){
       next(err);
