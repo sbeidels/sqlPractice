@@ -4,7 +4,8 @@ console.log("in update.js");
 function getData () {
 	var req = new XMLHttpRequest();
 	var payload = {};
-		payload.id = getElementById("editNum").textContent;
+		var id = getElementById("hiddenVal").value;
+		payload.id = id;
 		console.log(JSON.stringify(payload));
 		req.open("POST", "http://52.26.106.49:3000/getRow", true);
 		req.setRequestHeader("Content-Type", "application/json");
