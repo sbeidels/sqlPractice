@@ -189,7 +189,13 @@ app.post('/update',function(req,res,next){
           return;
          }
         
-        res.render('home',context);
+        else {
+			console.log(result);
+			  context.results = JSON.stringify(result);
+			  console.log(context.results);
+			res.type('json');
+			res.send(context);
+		}
         
 	});
     }
