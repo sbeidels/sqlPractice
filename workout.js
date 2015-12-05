@@ -151,7 +151,7 @@ app.get('/getRow',function(req,res,next){
   
  
     
-	pool.query('SELECT * FROM workouts WHERE id = ?', [req.query.id], function (err, result) {
+	pool.query('SELECT * FROM workouts WHERE id = ?', [req.body.id], function (err, result) {
 		  if(err) {
 			  next(err);
 			  return;
@@ -160,9 +160,9 @@ app.get('/getRow',function(req,res,next){
 			  console.log(result);
 			  context.results = JSON.stringify(result);
 			  console.log(context.results);
-			//res.type('json');
-			//res.send(context);
-			 res.render('update', context);
+			res.type('json');
+			res.send(context);
+			 //res.render('update', context);
 		  }
 		  /*context.results = JSON.stringify(rows);
 		  context.data = JSON.stringify(context.results);
