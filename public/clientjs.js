@@ -31,7 +31,13 @@ function buildTable(data) {
 			var newCellDate = document.createElement("td");
 			newCellDate.textContent = data[i].date;
 			var newCellUnits = document.createElement("td");
-			newCellUnits.textContent = data[i].lbs;
+			if(data[i].lbs == 1) {
+				newCellUnits.textContent = "lbs";
+			}
+			else {
+				newCellUnits.textContent = "kgs";
+			}
+			//newCellUnits.textContent = data[i].lbs;
 			newRow.appendChild(newCellName);
 			newRow.appendChild(newCellRep);
 			newRow.appendChild(newCellWeight);
@@ -139,7 +145,13 @@ function iniBuildTable() {
 			var newCellDate = document.createElement("td");
 			newCellDate.textContent = data[i].date;
 			var newCellUnits = document.createElement("td");
-			newCellUnits.textContent = data[i].lbs;
+			if(data[i].lbs == 1) {
+				newCellUnits.textContent = "lbs";
+			}
+			else {
+				newCellUnits.textContent = "kgs";
+			}
+			//newCellUnits.textContent = data[i].lbs;
 			newRow.appendChild(newCellName);
 			newRow.appendChild(newCellRep);
 			newRow.appendChild(newCellWeight);
