@@ -144,7 +144,7 @@ app.get('/logID', function(req,res,next) {
 });
 
 
-app.get('/getRow',function(req,res,next){
+app.post('/getRow', function(req,res,next){
   var context = {};
   console.log("in get row");
     
