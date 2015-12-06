@@ -1,22 +1,27 @@
+/*Sarah Beidelschies
+  CS 290
+  Databases and UI
+  Update js
+*/
+
 document.addEventListener("DOMContentLoaded", getData);
 document.addEventListener("DOMContentLoaded", bindUpdate);
 
-console.log("in update.js");
+
+/*get row of data using id from update.handlebars
+  auto fill in form using data*/
+  
 function getData () {
 		var req = new XMLHttpRequest();
 		var payload = {};
 		var id = document.getElementById("hiddenVal").value;
 		payload.id = id;
-		console.log(JSON.stringify(payload));
 		req.open("POST", "http://52.26.106.49:3000/getRow", true);
-		console.log("request open");
 		req.setRequestHeader("Content-Type", "application/json");
 		req.addEventListener("load", function() {
 		  if (req.status >= 200 && req.status < 400) {
-			console.log("In request event listener");
 			var response = JSON.parse(req.responseText);
 			var data = JSON.parse(response.results);
-			console.log(req.responseText);
 			document.getElementById('workName').value = data[0].name;
 			document.getElementById('reps').value = data[0].reps;
 			document.getElementById('weight').value = data[0].weight;
@@ -27,12 +32,7 @@ function getData () {
 			else {
 				document.getElementById('kgsbutton').checked = true;
 			}
-		    //var response = JSON.parse(req.responseText);
-			//var dataString = JSON.parse(response.data);
-			//document.getElementById("returnedInput").textContent = dataString.textIn;
-			//console.log(response.data);
-			//console.log(req.responseText);
-			//buildTable(data);
+		    
 			}
 		  else {
 		    console.log("Error in network request: " );
@@ -42,9 +42,13 @@ function getData () {
 		event.preventDefault();
 }		
 
+/*create event listener for update button
+  submit data from form to server update
+  send user back to home page
+*/
 function bindUpdate() {
 	 document.getElementById("updateWork").addEventListener('click', function(event) {
-		console.log("in bind buttons");
+		
 		var req = new XMLHttpRequest();
 		var id = document.getElementById("hiddenVal").value;
 		var workName = document.getElementById("workName").value;
@@ -53,15 +57,13 @@ function bindUpdate() {
 		var dateCurrent = document.getElementById("date").value;
 		var unitsCurrent = document.getElementById("lbsbutton").value;
 		var units2Current = document.getElementById("kgsbutton").value;
-		console.log(unitsCurrent);
-		console.log(units2Current);
 		if(document.getElementById("lbsbutton").checked) {
 			var units = 1;
-			console.log("lbs was checked");
+			
 		}
 		else {
 			var units = 0;
-			console.log("kgs was checked");
+			
 		}
 		
 		var payload = {};
@@ -71,21 +73,14 @@ function bindUpdate() {
 		payload.weight=weightCurrent;
 		payload.date=dateCurrent;
 		payload.units=units;
-		console.log(JSON.stringify(payload));
 		req.open("POST", "http://52.26.106.49:3000/update", true);
 		req.setRequestHeader("Content-Type", "application/json");
 		req.addEventListener("load", function() {
 		  if (req.status >= 200 && req.status < 400) {
-			console.log("In request event listener");
 			var response = JSON.parse(req.responseText);
 			var data = JSON.parse(response.results);
 			window.location.assign("http://52.26.106.49:3000/");
-		    //var response = JSON.parse(req.responseText);
-			//var dataString = JSON.parse(response.data);
-			//document.getElementById("returnedInput").textContent = dataString.textIn;
-			//console.log(response.data);
-			//console.log(req.responseText);
-			//buildTable(data);
+		    
 			}
 		  else {
 		    console.log("Error in network request: " );
