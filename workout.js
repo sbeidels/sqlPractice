@@ -1,5 +1,6 @@
 /*Sarah Beidelschies
   CS290 Database and UI interactions
+  server js file
 */
 
 var express = require('express');
