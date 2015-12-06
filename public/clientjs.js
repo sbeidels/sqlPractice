@@ -81,8 +81,9 @@ function buildTable(data) {
 			var newUpdate = document.createElement("td");
 			newRow.appendChild(newUpdate);
 			var updateForm = document.createElement("form");
-			updateForm.setAttribute('method', 'GET');
-			
+			var query = {id: null};
+			updateForm.method = 'GET';
+			updateForm.action = "http://52.26.106.49:3000/logID?" + query.id;
 			newUpdate.appendChild(updateForm);
 			
 			var updateButton = document.createElement("input");
@@ -95,7 +96,9 @@ function buildTable(data) {
 			console.log(i);
 			updateCell[i].addEventListener('click', function (event) {
 				var sib = this.nextSibling;
-				updateForm.setAttribute('action', "http://52.26.106.49:3000/logID?id=" + sib.value);
+				var sibString = String(sib.value);
+				query.id = sibString;
+				event.stopPropagation();
 				
 			});	
 			var formUpHide = document.createElement("input");
